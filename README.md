@@ -1,2 +1,2 @@
 # SRP
-Sttered Research Project
+Steered Research Project
