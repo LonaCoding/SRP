@@ -46,10 +46,15 @@ Filename=str(Input.inputFilename)
 outFilename=Filename.replace(".fastq","_adp.fastq")
 
 fileOutObject=open(outFilename, "w") #opens file
-for l in Content:
-    out=replacement(l)
+c=5 #line counter
+for l in Content: #1,4,7
+    if c==5:
+        out=replacement(l)
+        c=1
 
     fileOutObject.write(out)  
     #fileOutObject.write("\n")
+
+    c=c+1
 
 fileOutObject.close()
