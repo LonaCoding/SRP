@@ -29,8 +29,8 @@ def readInputFile(filename): #opens and reads contents of file, outputing its co
 
 
 def replacement(input):
-    outsub=input.replace(".1 ","\\1 ")
-    out=outsub.replace(".2 ","\\2 ")
+    outsub=input.replace(".1 ","/1 ")
+    out=outsub.replace(".2 ","/2 ")
     return out
 
 
