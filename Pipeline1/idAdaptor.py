@@ -51,6 +51,8 @@ for l in Content: #1,4,7
     if c==5:
         out=replacement(l)
         c=1
+    else:
+        out=l
 
     fileOutObject.write(out)  
     #fileOutObject.write("\n")
