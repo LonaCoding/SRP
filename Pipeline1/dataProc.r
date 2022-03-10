@@ -67,24 +67,24 @@ library(knitr) #for outputting and CytobankAPI
 #The authentication object will be passed as the first parameter of any endpoint request.
 
 # Making a request to the 'experiments' endpoint to create a new experiment
-new_experiment <- experiments.new(cyto_session, experiment_name="My New Experiment", purpose="CytobankAPI quickstart vignette")
-
-View(new_experiment)
-
-c1 <- c(1, 0.007, 0, 0.0023, 0, 0.0026)
-
-new_experiment_dataframe <- data.frame(id=c(1),
-                                       version=c(42),
-                                       purpose=c("CytobankAPI quickstart vignette"),
-                                       comments=c(""),
-                                       public=c(FALSE),
-                                       deleted=c(FALSE),
-                                       sources=c(""),
-                                       experimentName=c("My New Experiment"),
-                                       ...=c("..."),
-                                       stringsAsFactors=FALSE)
-
-knitr::kable(new_experiment_dataframe)
+#new_experiment <- experiments.new(cyto_session, experiment_name="My New Experiment", purpose="CytobankAPI quickstart vignette")
+#
+#View(new_experiment)
+#
+#c1 <- c(1, 0.007, 0, 0.0023, 0, 0.0026)
+#
+#new_experiment_dataframe <- data.frame(id=c(1),
+#                                       version=c(42),
+#                                       purpose=c("CytobankAPI quickstart vignette"),
+#                                       comments=c(""),
+#                                       public=c(FALSE),
+#                                       deleted=c(FALSE),
+#                                       sources=c(""),
+#                                       experimentName=c("My New Experiment"),
+#                                       ...=c("..."),
+#                                       stringsAsFactors=FALSE)
+#
+#knitr::kable(new_experiment_dataframe)
 
 
 #Generating viSNE maps: (see Supplementary Table 2)
