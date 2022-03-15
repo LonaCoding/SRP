@@ -6,6 +6,12 @@
 #igraph 0.7.1
 #FactoMineR 1.28
 
+#scde special install
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("scde")
+
 #install packages using remotes (with specific version)
 install.packages("remotes")  #get and install remotes first
 library(remotes) #load remotes before everything else
@@ -49,6 +55,7 @@ library(knitr) #for outputting and CytobankAPI
 #1. scde: Pairwise distances between cells
 
 
+
 #2. viSNE <- tsne: Dimensionality reduction of the distances
 #is the source package tsne or Rtsne or cytobankAPI???
 
@@ -58,6 +65,7 @@ library(knitr) #for outputting and CytobankAPI
 
 ##cytobankAPI method:
 #cytobankAPI needs username and password for aunthethication to site???
+#viSNE is a Premium Cytobank feature
 
 #endpoint.method -> viSNE , dimensionality_reduction
 
