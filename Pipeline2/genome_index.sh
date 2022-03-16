@@ -1,7 +1,7 @@
 #!/bin/bash 
 #PBS -N genome_index
-#PBS -l walltime=16:00:00
-#PBS -l vmem=32gb
+#PBS -l walltime=24:00:00
+#PBS -l vmem=100gb
 #PBS -l nodes=1:ppn=16
 #PBS -m bea
 #PBS -M aagt1@student.le.ac.uk
@@ -14,6 +14,6 @@ command=/cm/shared/apps/star/2.7.9a/STAR
 
 module load star/2.7.9a 
 
-$command --runThreadN 16 --runMode genomeGenerate --genomeDir $reference_genome/star --genomeFastaFiles $genome_fasta --sjdbGTFfile $gtf --sjdbOverhang 100 
+STAR --runThreadN 16 --runMode genomeGenerate --genomeDir $reference_genome/star --genomeFastaFiles $genome_fasta --sjdbGTFfile $gtf --sjdbOverhang 100 
 
 
