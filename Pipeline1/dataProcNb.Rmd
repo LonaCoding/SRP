@@ -99,18 +99,31 @@ suggestion: rename 2nd column's header to match source filename
 then, append to bigger dataframe horizontally (by column)
 
 ```{r}
-df<-read.csv("../../../gseCSV/GSM1657871_1772078217.C03.csv", header = FALSE, stringsAsFactors = FALSE, sep = "\t") #use relative path
+#df<-read.csv("../../../gseCSV/GSM1657871_1772078217.C03.csv", header = FALSE, stringsAsFactors = FALSE, sep = "\t") #use relative path
+df<-data.frame(nrow=22088)
 filenameList<-c("../../../gseCSV/GSM1657872_1772078217.C04.csv","../../../gseCSV/GSM1657873_1772078217.C06.csv","../../../gseCSV/GSM1657874_1772078217.C07.csv")
-fnl<-c("GSM1657872_1772078217.C04","GSM1657873_1772078217.C06","GSM1657874_1772078217.C07")
+fnl<-c("GSM1657871_1772078217.C03","GSM1657872_1772078217.C04","GSM1657873_1772078217.C06","GSM1657874_1772078217.C07")
+first=1
 for (f in fnl){
   fn<-paste("../../../gseCSV/", f,".csv", sep ="") #reconstruct full path and filename
-  print(fn)
-  df2<-read.csv(fn, header = FALSE, stringsAsFactors = FALSE, sep = "\t")
-  #rename second column's header
-  df2<-subset(df2,select=-V1)#select only second column, drop first column (deactivate this line to perform all-column append to see if all rows align)
-  df<-cbind(df,df2) #append new df
-}
+  fi<-paste(f,"_Index")
+  #print(fn) #displays input filenames
   
+  df2<-read.csv(fn, header = FALSE, stringsAsFactors = FALSE, sep = "\t")
+  
+  names(df2)[1]<- fi #rename first column's header
+  names(df2)[2]<- f #rename second column's header
+  
+  if (first==0){ #If current input dataframe is not the first in entire dataframe
+    df2[1]<-NULL #drop first column, because it's redundant (deactivate this line to perform all-column append to see if all rows align)
+  }
+  
+  df<-cbind(df,df2) #append new df
+  first=0 #no longer the first dataframe, set flag to FALSE
+}
+
+df[1]<-NULL #drop first column (not used)
+
 print(df)
 ```
 
