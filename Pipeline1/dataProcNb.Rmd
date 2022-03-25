@@ -84,10 +84,44 @@ GSM1657993_nochipID12.C23.csv
 GSM1658365_nochipID4.C95.csv
 GSM1658366_nochipID4.C96.csv
 
+
+
 ```{r}
 #data <- read.csv(file.choose()) #if want to select file from pop-up window
-data<-read.csv("../../../gseCSV/GSM1657871_1772078217.C03.csv", header = FALSE, stringsAsFactors = TRUE, sep = "\t") #use relative path
+data<-read.csv("../../../gseCSV/GSM1657871_1772078217.C03.csv", header = FALSE, stringsAsFactors = FALSE, sep = "\t") #use relative path
 print(data)
+```
+
+find a way to put all csv into a single DF/matrix
+all input files starts with "GSM165"
+all input files has same first column, which acts as index.
+suggestion: rename 2nd column's header to match source filename
+then, append to bigger dataframe horizontally (by column)
+
+```{r}
+df<-read.csv("../../../gseCSV/GSM1657871_1772078217.C03.csv", header = FALSE, stringsAsFactors = FALSE, sep = "\t") #use relative path
+filenameList<-c("../../../gseCSV/GSM1657872_1772078217.C04.csv","../../../gseCSV/GSM1657873_1772078217.C06.csv","../../../gseCSV/GSM1657874_1772078217.C07.csv")
+fnl<-c("GSM1657872_1772078217.C04","GSM1657873_1772078217.C06","GSM1657874_1772078217.C07")
+for (f in fnl){
+  fn<-paste("../../../gseCSV/", f,".csv", sep ="") #reconstruct full path and filename
+  print(fn)
+  df2<-read.csv(fn, header = FALSE, stringsAsFactors = FALSE, sep = "\t")
+  #rename second column's header
+  #drop first column
+  df=cbind(df,df2) #append new df
+}
+  
+print(df)
+```
+
+
+
+how to read this??
+GSE67835-GPL18573_series_matrix.txt
+GSE67835-GPL15520_series_matrix.txt
+```{r}
+mat <- read.table("../../../matrix/GSE67835-GPL18573_series_matrix.txt")#, header = TRUE, sep = "")
+print(mat)
 ```
 
 
