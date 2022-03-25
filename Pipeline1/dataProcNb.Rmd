@@ -39,7 +39,7 @@ install_version("FactoMineR","1.28")
 #install packages without using remotes (no specific version)
 #install.packages("bioconductor") #??
 #install.packages("scde") 
-install.packages("CytobankAPI") #guaranteed and has ViSNE subpackage, but not sure if it's the one asked by paper (for ViSNE)
+#install.packages("CytobankAPI") #guaranteed and has ViSNE subpackage, but not sure if it's the one asked by paper (for ViSNE)
 install.packages("tsne") #valid package, mentioned in paper but may not be right one because no subpackages (for ViSNE)
 install.packages("Rtsne")
 #install.packages("mclust")
@@ -49,7 +49,7 @@ install.packages("Rtsne")
 
 ```{r}
 #load packages
-library(CytobankAPI)
+#library(CytobankAPI)
 library(BiocManager)
 library(scde)
 library(tsne)
@@ -62,13 +62,12 @@ library(knitr) #for outputting and CytobankAPI
 ```
 
 
-#load data
-
+load data
+csv file
 ```{r}
-pd <- read.AnnotatedDataFrame(datadir(".txt"), 
-                              header = TRUE, sep = "", row.names = 1)
-mydata = read.table ("mydata.txt")
-pData(pd)
+
+data<-read.csv()
+
 ```
 
 
