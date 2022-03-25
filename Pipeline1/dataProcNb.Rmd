@@ -61,13 +61,33 @@ library(FactoMineR)
 library(knitr) #for outputting and CytobankAPI
 ```
 
+```{r}
+getwd()
+```
+
 
 load data
+gse67835
+GSE67835_RAW.tar from ncbi
+multiple
 csv file
+/home/jaic1/Documents/srp/gseCSV/GSM1657993_nochipID12.C23.csv
+file list:
+GSM1657871_1772078217.C03.csv
+GSM1657872_1772078217.C04.csv
+..
+GSM1657990_1772078237.C84.csv
+GSM1657991_1772078237.C92.csv
+GSM1657992_nochipID12.C05.csv
+GSM1657993_nochipID12.C23.csv
+..
+GSM1658365_nochipID4.C95.csv
+GSM1658366_nochipID4.C96.csv
+
 ```{r}
-
-data<-read.csv()
-
+#data <- read.csv(file.choose()) #if want to select file from pop-up window
+data<-read.csv("../../../gseCSV/GSM1657871_1772078217.C03.csv", header = FALSE, stringsAsFactors = TRUE, sep = "\t") #use relative path
+print(data)
 ```
 
 
