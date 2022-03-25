@@ -107,8 +107,8 @@ for (f in fnl){
   print(fn)
   df2<-read.csv(fn, header = FALSE, stringsAsFactors = FALSE, sep = "\t")
   #rename second column's header
-  #drop first column
-  df=cbind(df,df2) #append new df
+  df2<-subset(df2,select=-c(0))#drop first column (deactivate this line to perform all-column append to see if all rows align)
+  df<-cbind(df,df2) #append new df
 }
   
 print(df)
