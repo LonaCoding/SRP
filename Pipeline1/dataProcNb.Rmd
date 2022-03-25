@@ -104,10 +104,10 @@ print(inputFileList)
 ```
 
 ```{r}
-#proof of concept: removing extension from filenames
-test_inputFileList<-inputFileList
-test_inputFileList<-sub(".csv$", "", test_inputFileList)
-print(test_inputFileList)
+#proof of concept: removing extension from file names (might be useful when situation arise)
+#DO NOT RUN unless adjustments had been made
+#inputFileList<-sub(".csv$", "", inputFileList)
+#print(inputFileList)
 ```
 
 
@@ -122,7 +122,7 @@ end result is a single dataframe containing all concatenated data from multiple 
 inGSE_df<-data.frame(nrow=22088) #initialize empty 22088x0 dataframe for receiving input files
 #inputFileNameList<-c("../../../gseCSV/GSM1657872_1772078217.C04.csv","../../../gseCSV/GSM1657873_1772078217.C06.csv","../../../gseCSV/GSM1657874_1772078217.C07.csv") #list of input files with full path name and extension 
 #inputFileNameList<-c("GSM1657871_1772078217.C03","GSM1657872_1772078217.C04","GSM1657873_1772078217.C06","GSM1657874_1772078217.C07") #list of input files, but without full path name and extension
-first=1 #set first inout dataframe flag to TRUE
+first=1 #set first input dataframe flag to TRUE
 inputFileNameList<-inputFileList #use list of file names gained from previous cell
 
 for (f in inputFileNameList){
