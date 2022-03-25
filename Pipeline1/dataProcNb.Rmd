@@ -100,10 +100,11 @@ then, append to bigger dataframe horizontally (by column)
 
 ```{r}
 #df<-read.csv("../../../gseCSV/GSM1657871_1772078217.C03.csv", header = FALSE, stringsAsFactors = FALSE, sep = "\t") #use relative path
-df<-data.frame(nrow=22088)
-filenameList<-c("../../../gseCSV/GSM1657872_1772078217.C04.csv","../../../gseCSV/GSM1657873_1772078217.C06.csv","../../../gseCSV/GSM1657874_1772078217.C07.csv")
-fnl<-c("GSM1657871_1772078217.C03","GSM1657872_1772078217.C04","GSM1657873_1772078217.C06","GSM1657874_1772078217.C07")
-first=1
+df<-data.frame(nrow=22088) #initialize empty 22088x0 dataframe for receiving input files
+filenameList<-c("../../../gseCSV/GSM1657872_1772078217.C04.csv","../../../gseCSV/GSM1657873_1772078217.C06.csv","../../../gseCSV/GSM1657874_1772078217.C07.csv") #list of input files with full path name and extension 
+fnl<-c("GSM1657871_1772078217.C03","GSM1657872_1772078217.C04","GSM1657873_1772078217.C06","GSM1657874_1772078217.C07") #list of input files, but without full path name and extension
+first=1 #set first inout dataframe flag to TRUE
+
 for (f in fnl){
   fn<-paste("../../../gseCSV/", f,".csv", sep ="") #reconstruct full path and filename
   fi<-paste(f,"_Index")
