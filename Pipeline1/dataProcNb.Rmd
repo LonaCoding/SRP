@@ -57,7 +57,7 @@ library(Rtsne)
 library(mclust)
 library(igraph)
 library(FactoMineR)
-library(tidyverse) #for tsne
+#library(tidyverse) #for tsne
 library(knitr) #for outputting and CytobankAPI
 ```
 
