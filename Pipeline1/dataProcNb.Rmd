@@ -14,20 +14,22 @@ FactoMineR 1.28
 
 ```{r}
 #scde special install
-if (!require("BiocManager", quietly = TRUE))
+if (!require("BiocManager", quietly = FALSE))
     install.packages("BiocManager")
 ```
-
+Run this in terminal before attempting to install scde, because cairo is not pre-installed:
+sudo apt-get install libcairo2-dev
 ```{r}
 BiocManager::install("scde")
 ```
 
+remotes packages can be used to install only mclust, igraph and FactoMineR.
 ```{r}
 #install packages using remotes (with specific version)
 install.packages("remotes")  #get and install remotes first
 library(remotes) #load remotes before everything else
-install_bioc("3.0/scde",upgrade="never") #installing from bioconductor github page
-install_version("scde","3.0") #not using the bioconductor install function
+#install_bioc("3.0/scde",upgrade="never") #installing from bioconductor github page
+#install_version("scde","3.0") #not using the bioconductor install function
 install_version("mclust","4.4")
 install_version("igraph","0.7.1")
 install_version("FactoMineR","1.28")
@@ -35,20 +37,20 @@ install_version("FactoMineR","1.28")
 
 ```{r}
 #install packages without using remotes (no specific version)
-install.packages("bioconductor") #??
-install.packages("scde") 
+#install.packages("bioconductor") #??
+#install.packages("scde") 
 install.packages("CytobankAPI") #guaranteed and has ViSNE subpackage, but not sure if it's the one asked by paper (for ViSNE)
 install.packages("tsne") #valid package, mentioned in paper but may not be right one because no subpackages (for ViSNE)
 install.packages("Rtsne")
-install.packages("mclust")
-install.packages("igraph")
-install.packages("FactoMineR")
+#install.packages("mclust")
+#install.packages("igraph")
+#install.packages("FactoMineR")
 ```
 
 ```{r}
 #load packages
 library(CytobankAPI)
-library(bioconductor)
+library(BiocManager)
 library(scde)
 library(tsne)
 library(Rtsne)
@@ -61,6 +63,13 @@ library(knitr) #for outputting and CytobankAPI
 
 
 #load data
+
+```{r}
+pd <- read.AnnotatedDataFrame(datadir(".txt"), 
+                              header = TRUE, sep = "", row.names = 1)
+mydata = read.table ("mydata.txt")
+pData(pd)
+```
 
 
 #0. excluded cells that had less than 400000 reads, 

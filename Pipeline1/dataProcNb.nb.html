@@ -218,13 +218,18 @@ pre code {
 <p>required packages: scde 3.0 (from bioconductor) CytobankAPI/tsne (for viSNE) cyt (for visualizing viSNE) ???? mclust 4.4 igraph 0.7.1 FactoMineR 1.28</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3NjZGUgc3BlY2lhbCBpbnN0YWxsXG5pZiAoIXJlcXVpcmUoXCJCaW9jTWFuYWdlclwiLCBxdWlldGx5ID0gVFJVRSkpXG4gICAgaW5zdGFsbC5wYWNrYWdlcyhcIkJpb2NNYW5hZ2VyXCIpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3NjZGUgc3BlY2lhbCBpbnN0YWxsXG5pZiAoIXJlcXVpcmUoXCJCaW9jTWFuYWdlclwiLCBxdWlldGx5ID0gRkFMU0UpKVxuICAgIGluc3RhbGwucGFja2FnZXMoXCJCaW9jTWFuYWdlclwiKVxuYGBgIn0= -->
 <pre class="r"><code>#scde special install
-if (!require(&quot;BiocManager&quot;, quietly = TRUE))
+if (!require(&quot;BiocManager&quot;, quietly = FALSE))
     install.packages(&quot;BiocManager&quot;)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiBCaW9jTWFuYWdlclxuQmlvY29uZHVjdG9yIHZlcnNpb24gMy4xNCAoQmlvY01hbmFnZXIgMS4zMC4xNiksIFIgNC4xLjIgKDIwMjEtMTEtMDEpXG4ifQ== -->
+<pre><code>Loading required package: BiocManager
+Bioconductor version 3.14 (BiocManager 1.30.16), R 4.1.2 (2021-11-01)</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>Run this in terminal before attempting to install scde, because cairo is not pre-installed: sudo apt-get install libcairo2-dev</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQmlvY01hbmFnZXI6Omluc3RhbGwoXCJzY2RlXCIpXG5gYGAifQ== -->
@@ -232,14 +237,15 @@ if (!require(&quot;BiocManager&quot;, quietly = TRUE))
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>remotes packages can be used to install only mclust, igraph and FactoMineR.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2luc3RhbGwgcGFja2FnZXMgdXNpbmcgcmVtb3RlcyAod2l0aCBzcGVjaWZpYyB2ZXJzaW9uKVxuaW5zdGFsbC5wYWNrYWdlcyhcInJlbW90ZXNcIikgICNnZXQgYW5kIGluc3RhbGwgcmVtb3RlcyBmaXJzdFxubGlicmFyeShyZW1vdGVzKSAjbG9hZCByZW1vdGVzIGJlZm9yZSBldmVyeXRoaW5nIGVsc2Vcbmluc3RhbGxfYmlvYyhcIjMuMC9zY2RlXCIsdXBncmFkZT1cIm5ldmVyXCIpICNpbnN0YWxsaW5nIGZyb20gYmlvY29uZHVjdG9yIGdpdGh1YiBwYWdlXG5pbnN0YWxsX3ZlcnNpb24oXCJzY2RlXCIsXCIzLjBcIikgI25vdCB1c2luZyB0aGUgYmlvY29uZHVjdG9yIGluc3RhbGwgZnVuY3Rpb25cbmluc3RhbGxfdmVyc2lvbihcIm1jbHVzdFwiLFwiNC40XCIpXG5pbnN0YWxsX3ZlcnNpb24oXCJpZ3JhcGhcIixcIjAuNy4xXCIpXG5pbnN0YWxsX3ZlcnNpb24oXCJGYWN0b01pbmVSXCIsXCIxLjI4XCIpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2luc3RhbGwgcGFja2FnZXMgdXNpbmcgcmVtb3RlcyAod2l0aCBzcGVjaWZpYyB2ZXJzaW9uKVxuaW5zdGFsbC5wYWNrYWdlcyhcInJlbW90ZXNcIikgICNnZXQgYW5kIGluc3RhbGwgcmVtb3RlcyBmaXJzdFxubGlicmFyeShyZW1vdGVzKSAjbG9hZCByZW1vdGVzIGJlZm9yZSBldmVyeXRoaW5nIGVsc2VcbiNpbnN0YWxsX2Jpb2MoXCIzLjAvc2NkZVwiLHVwZ3JhZGU9XCJuZXZlclwiKSAjaW5zdGFsbGluZyBmcm9tIGJpb2NvbmR1Y3RvciBnaXRodWIgcGFnZVxuI2luc3RhbGxfdmVyc2lvbihcInNjZGVcIixcIjMuMFwiKSAjbm90IHVzaW5nIHRoZSBiaW9jb25kdWN0b3IgaW5zdGFsbCBmdW5jdGlvblxuaW5zdGFsbF92ZXJzaW9uKFwibWNsdXN0XCIsXCI0LjRcIilcbmluc3RhbGxfdmVyc2lvbihcImlncmFwaFwiLFwiMC43LjFcIilcbmluc3RhbGxfdmVyc2lvbihcIkZhY3RvTWluZVJcIixcIjEuMjhcIilcbmBgYCJ9 -->
 <pre class="r"><code>#install packages using remotes (with specific version)
 install.packages(&quot;remotes&quot;)  #get and install remotes first
 library(remotes) #load remotes before everything else
-install_bioc(&quot;3.0/scde&quot;,upgrade=&quot;never&quot;) #installing from bioconductor github page
-install_version(&quot;scde&quot;,&quot;3.0&quot;) #not using the bioconductor install function
+#install_bioc(&quot;3.0/scde&quot;,upgrade=&quot;never&quot;) #installing from bioconductor github page
+#install_version(&quot;scde&quot;,&quot;3.0&quot;) #not using the bioconductor install function
 install_version(&quot;mclust&quot;,&quot;4.4&quot;)
 install_version(&quot;igraph&quot;,&quot;0.7.1&quot;)
 install_version(&quot;FactoMineR&quot;,&quot;1.28&quot;)</code></pre>
@@ -248,37 +254,208 @@ install_version(&quot;FactoMineR&quot;,&quot;1.28&quot;)</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2luc3RhbGwgcGFja2FnZXMgd2l0aG91dCB1c2luZyByZW1vdGVzIChubyBzcGVjaWZpYyB2ZXJzaW9uKVxuaW5zdGFsbC5wYWNrYWdlcyhcImJpb2NvbmR1Y3RvclwiKSAjPz9cbmluc3RhbGwucGFja2FnZXMoXCJzY2RlXCIpIFxuaW5zdGFsbC5wYWNrYWdlcyhcIkN5dG9iYW5rQVBJXCIpICNndWFyYW50ZWVkIGFuZCBoYXMgVmlTTkUgc3VicGFja2FnZSwgYnV0IG5vdCBzdXJlIGlmIGl0J3MgdGhlIG9uZSBhc2tlZCBieSBwYXBlciAoZm9yIFZpU05FKVxuaW5zdGFsbC5wYWNrYWdlcyhcInRzbmVcIikgI3ZhbGlkIHBhY2thZ2UsIG1lbnRpb25lZCBpbiBwYXBlciBidXQgbWF5IG5vdCBiZSByaWdodCBvbmUgYmVjYXVzZSBubyBzdWJwYWNrYWdlcyAoZm9yIFZpU05FKVxuaW5zdGFsbC5wYWNrYWdlcyhcIlJ0c25lXCIpXG5pbnN0YWxsLnBhY2thZ2VzKFwibWNsdXN0XCIpXG5pbnN0YWxsLnBhY2thZ2VzKFwiaWdyYXBoXCIpXG5pbnN0YWxsLnBhY2thZ2VzKFwiRmFjdG9NaW5lUlwiKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2luc3RhbGwgcGFja2FnZXMgd2l0aG91dCB1c2luZyByZW1vdGVzIChubyBzcGVjaWZpYyB2ZXJzaW9uKVxuI2luc3RhbGwucGFja2FnZXMoXCJiaW9jb25kdWN0b3JcIikgIz8/XG4jaW5zdGFsbC5wYWNrYWdlcyhcInNjZGVcIikgXG5pbnN0YWxsLnBhY2thZ2VzKFwiQ3l0b2JhbmtBUElcIikgI2d1YXJhbnRlZWQgYW5kIGhhcyBWaVNORSBzdWJwYWNrYWdlLCBidXQgbm90IHN1cmUgaWYgaXQncyB0aGUgb25lIGFza2VkIGJ5IHBhcGVyIChmb3IgVmlTTkUpXG5gYGAifQ== -->
 <pre class="r"><code>#install packages without using remotes (no specific version)
-install.packages(&quot;bioconductor&quot;) #??
-install.packages(&quot;scde&quot;) 
-install.packages(&quot;CytobankAPI&quot;) #guaranteed and has ViSNE subpackage, but not sure if it&#39;s the one asked by paper (for ViSNE)
-install.packages(&quot;tsne&quot;) #valid package, mentioned in paper but may not be right one because no subpackages (for ViSNE)
-install.packages(&quot;Rtsne&quot;)
-install.packages(&quot;mclust&quot;)
-install.packages(&quot;igraph&quot;)
-install.packages(&quot;FactoMineR&quot;)</code></pre>
+#install.packages(&quot;bioconductor&quot;) #??
+#install.packages(&quot;scde&quot;) 
+install.packages(&quot;CytobankAPI&quot;) #guaranteed and has ViSNE subpackage, but not sure if it&#39;s the one asked by paper (for ViSNE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiSW5zdGFsbGluZyBwYWNrYWdlIGludG8g4oCYL2hvbWUvamFpYzEvUi94ODZfNjQtcGMtbGludXgtZ251LWxpYnJhcnkvNC4x4oCZXG4oYXMg4oCYbGli4oCZIGlzIHVuc3BlY2lmaWVkKVxudHJ5aW5nIFVSTCAnaHR0cHM6Ly9jbG91ZC5yLXByb2plY3Qub3JnL3NyYy9jb250cmliL0N5dG9iYW5rQVBJXzEuNC4wLnRhci5neidcbkNvbnRlbnQgdHlwZSAnYXBwbGljYXRpb24veC1nemlwJyBsZW5ndGggMjUxMDEwNCBieXRlcyAoMi40IE1CKVxuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cbmRvd25sb2FkZWQgMi40IE1CXG5cbiogaW5zdGFsbGluZyAqc291cmNlKiBwYWNrYWdlIOKAmEN5dG9iYW5rQVBJ4oCZIC4uLlxuKiogcGFja2FnZSDigJhDeXRvYmFua0FQSeKAmSBzdWNjZXNzZnVsbHkgdW5wYWNrZWQgYW5kIE1ENSBzdW1zIGNoZWNrZWRcbioqIHVzaW5nIHN0YWdlZCBpbnN0YWxsYXRpb25cbioqIFJcbioqIGluc3RcbioqIGJ5dGUtY29tcGlsZSBhbmQgcHJlcGFyZSBwYWNrYWdlIGZvciBsYXp5IGxvYWRpbmdcbioqIGhlbHBcbioqKiBpbnN0YWxsaW5nIGhlbHAgaW5kaWNlc1xuKioqIGNvcHlpbmcgZmlndXJlc1xuKiogYnVpbGRpbmcgcGFja2FnZSBpbmRpY2VzXG4qKiBpbnN0YWxsaW5nIHZpZ25ldHRlc1xuKiogdGVzdGluZyBpZiBpbnN0YWxsZWQgcGFja2FnZSBjYW4gYmUgbG9hZGVkIGZyb20gdGVtcG9yYXJ5IGxvY2F0aW9uXG4qKiB0ZXN0aW5nIGlmIGluc3RhbGxlZCBwYWNrYWdlIGNhbiBiZSBsb2FkZWQgZnJvbSBmaW5hbCBsb2NhdGlvblxuKiogdGVzdGluZyBpZiBpbnN0YWxsZWQgcGFja2FnZSBrZWVwcyBhIHJlY29yZCBvZiB0ZW1wb3JhcnkgaW5zdGFsbGF0aW9uIHBhdGhcbiogRE9ORSAoQ3l0b2JhbmtBUEkpXG5cblRoZSBkb3dubG9hZGVkIHNvdXJjZSBwYWNrYWdlcyBhcmUgaW5cblx04oCYL3RtcC9SdG1wb2pjTllXL2Rvd25sb2FkZWRfcGFja2FnZXPigJlcbiJ9 -->
+<pre><code>Installing package into ‘/home/jaic1/R/x86_64-pc-linux-gnu-library/4.1’
+(as ‘lib’ is unspecified)
+trying URL &#39;https://cloud.r-project.org/src/contrib/CytobankAPI_1.4.0.tar.gz&#39;
+Content type &#39;application/x-gzip&#39; length 2510104 bytes (2.4 MB)
+==================================================
+downloaded 2.4 MB
+
+* installing *source* package ‘CytobankAPI’ ...
+** package ‘CytobankAPI’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+*** copying figures
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (CytobankAPI)
+
+The downloaded source packages are in
+    ‘/tmp/RtmpojcNYW/downloaded_packages’</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5zdGFsbC5wYWNrYWdlcyhcInRzbmVcIikgI3ZhbGlkIHBhY2thZ2UsIG1lbnRpb25lZCBpbiBwYXBlciBidXQgbWF5IG5vdCBiZSByaWdodCBvbmUgYmVjYXVzZSBubyBzdWJwYWNrYWdlcyAoZm9yIFZpU05FKVxuYGBgIn0= -->
+<pre class="r"><code>install.packages(&quot;tsne&quot;) #valid package, mentioned in paper but may not be right one because no subpackages (for ViSNE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiSW5zdGFsbGluZyBwYWNrYWdlIGludG8g4oCYL2hvbWUvamFpYzEvUi94ODZfNjQtcGMtbGludXgtZ251LWxpYnJhcnkvNC4x4oCZXG4oYXMg4oCYbGli4oCZIGlzIHVuc3BlY2lmaWVkKVxudHJ5aW5nIFVSTCAnaHR0cHM6Ly9jbG91ZC5yLXByb2plY3Qub3JnL3NyYy9jb250cmliL3RzbmVfMC4xLTMudGFyLmd6J1xuQ29udGVudCB0eXBlICdhcHBsaWNhdGlvbi94LWd6aXAnIGxlbmd0aCA0NTUzIGJ5dGVzXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuZG93bmxvYWRlZCA0NTUzIGJ5dGVzXG5cbiogaW5zdGFsbGluZyAqc291cmNlKiBwYWNrYWdlIOKAmHRzbmXigJkgLi4uXG4qKiBwYWNrYWdlIOKAmHRzbmXigJkgc3VjY2Vzc2Z1bGx5IHVucGFja2VkIGFuZCBNRDUgc3VtcyBjaGVja2VkXG4qKiB1c2luZyBzdGFnZWQgaW5zdGFsbGF0aW9uXG4qKiBSXG4qKiBieXRlLWNvbXBpbGUgYW5kIHByZXBhcmUgcGFja2FnZSBmb3IgbGF6eSBsb2FkaW5nXG4qKiBoZWxwXG4qKiogaW5zdGFsbGluZyBoZWxwIGluZGljZXNcbioqIGJ1aWxkaW5nIHBhY2thZ2UgaW5kaWNlc1xuKiogdGVzdGluZyBpZiBpbnN0YWxsZWQgcGFja2FnZSBjYW4gYmUgbG9hZGVkIGZyb20gdGVtcG9yYXJ5IGxvY2F0aW9uXG4qKiB0ZXN0aW5nIGlmIGluc3RhbGxlZCBwYWNrYWdlIGNhbiBiZSBsb2FkZWQgZnJvbSBmaW5hbCBsb2NhdGlvblxuKiogdGVzdGluZyBpZiBpbnN0YWxsZWQgcGFja2FnZSBrZWVwcyBhIHJlY29yZCBvZiB0ZW1wb3JhcnkgaW5zdGFsbGF0aW9uIHBhdGhcbiogRE9ORSAodHNuZSlcblxuVGhlIGRvd25sb2FkZWQgc291cmNlIHBhY2thZ2VzIGFyZSBpblxuXHTigJgvdG1wL1J0bXBvamNOWVcvZG93bmxvYWRlZF9wYWNrYWdlc+KAmVxuIn0= -->
+<pre><code>Installing package into ‘/home/jaic1/R/x86_64-pc-linux-gnu-library/4.1’
+(as ‘lib’ is unspecified)
+trying URL &#39;https://cloud.r-project.org/src/contrib/tsne_0.1-3.tar.gz&#39;
+Content type &#39;application/x-gzip&#39; length 4553 bytes
+==================================================
+downloaded 4553 bytes
+
+* installing *source* package ‘tsne’ ...
+** package ‘tsne’ successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (tsne)
+
+The downloaded source packages are in
+    ‘/tmp/RtmpojcNYW/downloaded_packages’</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5zdGFsbC5wYWNrYWdlcyhcIlJ0c25lXCIpXG5gYGAifQ== -->
+<pre class="r"><code>install.packages(&quot;Rtsne&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiSW5zdGFsbGluZyBwYWNrYWdlIGludG8g4oCYL2hvbWUvamFpYzEvUi94ODZfNjQtcGMtbGludXgtZ251LWxpYnJhcnkvNC4x4oCZXG4oYXMg4oCYbGli4oCZIGlzIHVuc3BlY2lmaWVkKVxudHJ5aW5nIFVSTCAnaHR0cHM6Ly9jbG91ZC5yLXByb2plY3Qub3JnL3NyYy9jb250cmliL1J0c25lXzAuMTUudGFyLmd6J1xuQ29udGVudCB0eXBlICdhcHBsaWNhdGlvbi94LWd6aXAnIGxlbmd0aCA2NzU5NSBieXRlcyAoNjYgS0IpXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuZG93bmxvYWRlZCA2NiBLQlxuXG4qIGluc3RhbGxpbmcgKnNvdXJjZSogcGFja2FnZSDigJhSdHNuZeKAmSAuLi5cbioqIHBhY2thZ2Ug4oCYUnRzbmXigJkgc3VjY2Vzc2Z1bGx5IHVucGFja2VkIGFuZCBNRDUgc3VtcyBjaGVja2VkXG4qKiB1c2luZyBzdGFnZWQgaW5zdGFsbGF0aW9uXG4qKiBsaWJzXG4ifQ== -->
+<pre><code>Installing package into ‘/home/jaic1/R/x86_64-pc-linux-gnu-library/4.1’
+(as ‘lib’ is unspecified)
+trying URL &#39;https://cloud.r-project.org/src/contrib/Rtsne_0.15.tar.gz&#39;
+Content type &#39;application/x-gzip&#39; length 67595 bytes (66 KB)
+==================================================
+downloaded 66 KB
+
+* installing *source* package ‘Rtsne’ ...
+** package ‘Rtsne’ successfully unpacked and MD5 sums checked
+** using staged installation
+** libs</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiZysrIC1zdGQ9Z251KysxNCAtSVwiL3Vzci9zaGFyZS9SL2luY2x1ZGVcIiAtRE5ERUJVRyAgLUknL2hvbWUvamFpYzEvUi94ODZfNjQtcGMtbGludXgtZ251LWxpYnJhcnkvNC4xL1JjcHAvaW5jbHVkZScgICAtZm9wZW5tcCAtZnBpYyAgLWcgLU8yIC1mZGVidWctcHJlZml4LW1hcD0vYnVpbGQvci1iYXNlLWkyUElITy9yLWJhc2UtNC4xLjI9LiAtZnN0YWNrLXByb3RlY3Rvci1zdHJvbmcgLVdmb3JtYXQgLVdlcnJvcj1mb3JtYXQtc2VjdXJpdHkgLVdkYXRlLXRpbWUgLURfRk9SVElGWV9TT1VSQ0U9MiAtZyAgLWMgUmNwcEV4cG9ydHMuY3BwIC1vIFJjcHBFeHBvcnRzLm9cbmcrKyAtc3RkPWdudSsrMTQgLUlcIi91c3Ivc2hhcmUvUi9pbmNsdWRlXCIgLUROREVCVUcgIC1JJy9ob21lL2phaWMxL1IveDg2XzY0LXBjLWxpbnV4LWdudS1saWJyYXJ5LzQuMS9SY3BwL2luY2x1ZGUnICAgLWZvcGVubXAgLWZwaWMgIC1nIC1PMiAtZmRlYnVnLXByZWZpeC1tYXA9L2J1aWxkL3ItYmFzZS1pMlBJSE8vci1iYXNlLTQuMS4yPS4gLWZzdGFjay1wcm90ZWN0b3Itc3Ryb25nIC1XZm9ybWF0IC1XZXJyb3I9Zm9ybWF0LXNlY3VyaXR5IC1XZGF0ZS10aW1lIC1EX0ZPUlRJRllfU09VUkNFPTIgLWcgIC1jIFJ0c25lLmNwcCAtbyBSdHNuZS5vXG5nKysgLXN0ZD1nbnUrKzE0IC1JXCIvdXNyL3NoYXJlL1IvaW5jbHVkZVwiIC1ETkRFQlVHICAtSScvaG9tZS9qYWljMS9SL3g4Nl82NC1wYy1saW51eC1nbnUtbGlicmFyeS80LjEvUmNwcC9pbmNsdWRlJyAgIC1mb3Blbm1wIC1mcGljICAtZyAtTzIgLWZkZWJ1Zy1wcmVmaXgtbWFwPS9idWlsZC9yLWJhc2UtaTJQSUhPL3ItYmFzZS00LjEuMj0uIC1mc3RhY2stcHJvdGVjdG9yLXN0cm9uZyAtV2Zvcm1hdCAtV2Vycm9yPWZvcm1hdC1zZWN1cml0eSAtV2RhdGUtdGltZSAtRF9GT1JUSUZZX1NPVVJDRT0yIC1nICAtYyBub3JtYWxpemVfaW5wdXQuY3BwIC1vIG5vcm1hbGl6ZV9pbnB1dC5vXG5nKysgLXN0ZD1nbnUrKzE0IC1JXCIvdXNyL3NoYXJlL1IvaW5jbHVkZVwiIC1ETkRFQlVHICAtSScvaG9tZS9qYWljMS9SL3g4Nl82NC1wYy1saW51eC1nbnUtbGlicmFyeS80LjEvUmNwcC9pbmNsdWRlJyAgIC1mb3Blbm1wIC1mcGljICAtZyAtTzIgLWZkZWJ1Zy1wcmVmaXgtbWFwPS9idWlsZC9yLWJhc2UtaTJQSUhPL3ItYmFzZS00LjEuMj0uIC1mc3RhY2stcHJvdGVjdG9yLXN0cm9uZyAtV2Zvcm1hdCAtV2Vycm9yPWZvcm1hdC1zZWN1cml0eSAtV2RhdGUtdGltZSAtRF9GT1JUSUZZX1NPVVJDRT0yIC1nICAtYyBzcHRyZWUuY3BwIC1vIHNwdHJlZS5vXG5nKysgLXN0ZD1nbnUrKzE0IC1JXCIvdXNyL3NoYXJlL1IvaW5jbHVkZVwiIC1ETkRFQlVHICAtSScvaG9tZS9qYWljMS9SL3g4Nl82NC1wYy1saW51eC1nbnUtbGlicmFyeS80LjEvUmNwcC9pbmNsdWRlJyAgIC1mb3Blbm1wIC1mcGljICAtZyAtTzIgLWZkZWJ1Zy1wcmVmaXgtbWFwPS9idWlsZC9yLWJhc2UtaTJQSUhPL3ItYmFzZS00LjEuMj0uIC1mc3RhY2stcHJvdGVjdG9yLXN0cm9uZyAtV2Zvcm1hdCAtV2Vycm9yPWZvcm1hdC1zZWN1cml0eSAtV2RhdGUtdGltZSAtRF9GT1JUSUZZX1NPVVJDRT0yIC1nICAtYyB0c25lLmNwcCAtbyB0c25lLm9cbmcrKyAtc3RkPWdudSsrMTQgLXNoYXJlZCAtTC91c3IvbGliL1IvbGliIC1XbCwtQnN5bWJvbGljLWZ1bmN0aW9ucyAtV2wsLXoscmVscm8gLW8gUnRzbmUuc28gUmNwcEV4cG9ydHMubyBSdHNuZS5vIG5vcm1hbGl6ZV9pbnB1dC5vIHNwdHJlZS5vIHRzbmUubyAtbGxhcGFjayAtbGJsYXMgLWxnZm9ydHJhbiAtbG0gLWxxdWFkbWF0aCAtZm9wZW5tcCAtTC91c3IvbGliL1IvbGliIC1sUlxuIn0= -->
+<pre><code>g++ -std=gnu++14 -I&quot;/usr/share/R/include&quot; -DNDEBUG  -I&#39;/home/jaic1/R/x86_64-pc-linux-gnu-library/4.1/Rcpp/include&#39;   -fopenmp -fpic  -g -O2 -fdebug-prefix-map=/build/r-base-i2PIHO/r-base-4.1.2=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c RcppExports.cpp -o RcppExports.o
+g++ -std=gnu++14 -I&quot;/usr/share/R/include&quot; -DNDEBUG  -I&#39;/home/jaic1/R/x86_64-pc-linux-gnu-library/4.1/Rcpp/include&#39;   -fopenmp -fpic  -g -O2 -fdebug-prefix-map=/build/r-base-i2PIHO/r-base-4.1.2=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c Rtsne.cpp -o Rtsne.o
+g++ -std=gnu++14 -I&quot;/usr/share/R/include&quot; -DNDEBUG  -I&#39;/home/jaic1/R/x86_64-pc-linux-gnu-library/4.1/Rcpp/include&#39;   -fopenmp -fpic  -g -O2 -fdebug-prefix-map=/build/r-base-i2PIHO/r-base-4.1.2=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c normalize_input.cpp -o normalize_input.o
+g++ -std=gnu++14 -I&quot;/usr/share/R/include&quot; -DNDEBUG  -I&#39;/home/jaic1/R/x86_64-pc-linux-gnu-library/4.1/Rcpp/include&#39;   -fopenmp -fpic  -g -O2 -fdebug-prefix-map=/build/r-base-i2PIHO/r-base-4.1.2=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c sptree.cpp -o sptree.o
+g++ -std=gnu++14 -I&quot;/usr/share/R/include&quot; -DNDEBUG  -I&#39;/home/jaic1/R/x86_64-pc-linux-gnu-library/4.1/Rcpp/include&#39;   -fopenmp -fpic  -g -O2 -fdebug-prefix-map=/build/r-base-i2PIHO/r-base-4.1.2=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c tsne.cpp -o tsne.o
+g++ -std=gnu++14 -shared -L/usr/lib/R/lib -Wl,-Bsymbolic-functions -Wl,-z,relro -o Rtsne.so RcppExports.o Rtsne.o normalize_input.o sptree.o tsne.o -llapack -lblas -lgfortran -lm -lquadmath -fopenmp -L/usr/lib/R/lib -lR</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiaW5zdGFsbGluZyB0byAvaG9tZS9qYWljMS9SL3g4Nl82NC1wYy1saW51eC1nbnUtbGlicmFyeS80LjEvMDBMT0NLLVJ0c25lLzAwbmV3L1J0c25lL2xpYnNcbioqIFJcbioqIGluc3RcbioqIGJ5dGUtY29tcGlsZSBhbmQgcHJlcGFyZSBwYWNrYWdlIGZvciBsYXp5IGxvYWRpbmdcbioqIGhlbHBcbioqKiBpbnN0YWxsaW5nIGhlbHAgaW5kaWNlc1xuKiogYnVpbGRpbmcgcGFja2FnZSBpbmRpY2VzXG4qKiB0ZXN0aW5nIGlmIGluc3RhbGxlZCBwYWNrYWdlIGNhbiBiZSBsb2FkZWQgZnJvbSB0ZW1wb3JhcnkgbG9jYXRpb25cbioqIGNoZWNraW5nIGFic29sdXRlIHBhdGhzIGluIHNoYXJlZCBvYmplY3RzIGFuZCBkeW5hbWljIGxpYnJhcmllc1xuKiogdGVzdGluZyBpZiBpbnN0YWxsZWQgcGFja2FnZSBjYW4gYmUgbG9hZGVkIGZyb20gZmluYWwgbG9jYXRpb25cbioqIHRlc3RpbmcgaWYgaW5zdGFsbGVkIHBhY2thZ2Uga2VlcHMgYSByZWNvcmQgb2YgdGVtcG9yYXJ5IGluc3RhbGxhdGlvbiBwYXRoXG4qIERPTkUgKFJ0c25lKVxuXG5UaGUgZG93bmxvYWRlZCBzb3VyY2UgcGFja2FnZXMgYXJlIGluXG5cdOKAmC90bXAvUnRtcG9qY05ZVy9kb3dubG9hZGVkX3BhY2thZ2Vz4oCZXG4ifQ== -->
+<pre><code>installing to /home/jaic1/R/x86_64-pc-linux-gnu-library/4.1/00LOCK-Rtsne/00new/Rtsne/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (Rtsne)
+
+The downloaded source packages are in
+    ‘/tmp/RtmpojcNYW/downloaded_packages’</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2luc3RhbGwucGFja2FnZXMoXCJtY2x1c3RcIilcbiNpbnN0YWxsLnBhY2thZ2VzKFwiaWdyYXBoXCIpXG4jaW5zdGFsbC5wYWNrYWdlcyhcIkZhY3RvTWluZVJcIilcbmBgYCJ9 -->
+<pre class="r"><code>#install.packages(&quot;mclust&quot;)
+#install.packages(&quot;igraph&quot;)
+#install.packages(&quot;FactoMineR&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2xvYWQgcGFja2FnZXNcbmxpYnJhcnkoQ3l0b2JhbmtBUEkpXG5saWJyYXJ5KGJpb2NvbmR1Y3RvcilcbmxpYnJhcnkoc2NkZSlcbmxpYnJhcnkodHNuZSlcbmxpYnJhcnkoUnRzbmUpXG5saWJyYXJ5KG1jbHVzdClcbmxpYnJhcnkoaWdyYXBoKVxubGlicmFyeShGYWN0b01pbmVSKVxubGlicmFyeSh0aWR5dmVyc2UpICNmb3IgdHNuZVxubGlicmFyeShrbml0cikgI2ZvciBvdXRwdXR0aW5nIGFuZCBDeXRvYmFua0FQSVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2xvYWQgcGFja2FnZXNcbmxpYnJhcnkoQ3l0b2JhbmtBUEkpXG5gYGAifQ== -->
 <pre class="r"><code>#load packages
-library(CytobankAPI)
-library(bioconductor)
-library(scde)
-library(tsne)
+library(CytobankAPI)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiBjdXJsXG5Vc2luZyBsaWJjdXJsIDcuNjguMCB3aXRoIE9wZW5TU0wvMS4xLjFmXG5Mb2FkaW5nIHJlcXVpcmVkIHBhY2thZ2U6IGh0dHJcblxuQXR0YWNoaW5nIHBhY2thZ2U6IOKAmGh0dHLigJlcblxuVGhlIGZvbGxvd2luZyBvYmplY3QgaXMgbWFza2VkIGZyb20g4oCYcGFja2FnZTpjdXJs4oCZOlxuXG4gICAgaGFuZGxlX3Jlc2V0XG5cbkN5dG9iYW5rQVBJIDEuNC4wXG5UeXBlIEN5dG9iYW5rQVBJX25ld3MoKSB0byBzZWUgbmV3IGZlYXR1cmVzL2NoYW5nZXMvYnVnIGZpeGVzLlxuXG5BdHRhY2hpbmcgcGFja2FnZTog4oCYQ3l0b2JhbmtBUEnigJlcblxuVGhlIGZvbGxvd2luZyBvYmplY3QgaXMgbWFza2VkIGZyb20g4oCYcGFja2FnZTpodHRy4oCZOlxuXG4gICAgYXV0aGVudGljYXRlXG4ifQ== -->
+<pre><code>Loading required package: curl
+Using libcurl 7.68.0 with OpenSSL/1.1.1f
+Loading required package: httr
+
+Attaching package: ‘httr’
+
+The following object is masked from ‘package:curl’:
+
+    handle_reset
+
+CytobankAPI 1.4.0
+Type CytobankAPI_news() to see new features/changes/bug fixes.
+
+Attaching package: ‘CytobankAPI’
+
+The following object is masked from ‘package:httr’:
+
+    authenticate</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShCaW9jTWFuYWdlcilcbmxpYnJhcnkoc2NkZSlcbmBgYCJ9 -->
+<pre class="r"><code>library(BiocManager)
+library(scde)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiBmbGV4bWl4XG5Mb2FkaW5nIHJlcXVpcmVkIHBhY2thZ2U6IGxhdHRpY2VcbiJ9 -->
+<pre><code>Loading required package: flexmix
+Loading required package: lattice</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0c25lKVxubGlicmFyeShSdHNuZSlcbmxpYnJhcnkobWNsdXN0KVxuYGBgIn0= -->
+<pre class="r"><code>library(tsne)
 library(Rtsne)
-library(mclust)
-library(igraph)
-library(FactoMineR)
-library(tidyverse) #for tsne
-library(knitr) #for outputting and CytobankAPI</code></pre>
+library(mclust)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUGFja2FnZSAnbWNsdXN0JyB2ZXJzaW9uIDQuNFxuVHlwZSAnY2l0YXRpb24oXCJtY2x1c3RcIiknIGZvciBjaXRpbmcgdGhpcyBSIHBhY2thZ2UgaW4gcHVibGljYXRpb25zLlxuIn0= -->
+<pre><code>Package &#39;mclust&#39; version 4.4
+Type &#39;citation(&quot;mclust&quot;)&#39; for citing this R package in publications.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShpZ3JhcGgpXG5gYGAifQ== -->
+<pre class="r"><code>library(igraph)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5BdHRhY2hpbmcgcGFja2FnZTog4oCYaWdyYXBo4oCZXG5cblRoZSBmb2xsb3dpbmcgb2JqZWN0IGlzIG1hc2tlZCBmcm9tIOKAmHBhY2thZ2U6ZmxleG1peOKAmTpcblxuICAgIGNsdXN0ZXJzXG4ifQ== -->
+<pre><code>
+Attaching package: ‘igraph’
+
+The following object is masked from ‘package:flexmix’:
+
+    clusters</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShGYWN0b01pbmVSKVxubGlicmFyeSh0aWR5dmVyc2UpICNmb3IgdHNuZVxuYGBgIn0= -->
+<pre class="r"><code>library(FactoMineR)
+library(tidyverse) #for tsne</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxu4pSA4pSAIEF0dGFjaGluZyBwYWNrYWdlcyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlIDEuMy4xIOKUgOKUgFxu4pyTIGdncGxvdDIgMy4zLjUgICAgIOKckyBwdXJyciAgIDAuMy40XG7inJMgdGliYmxlICAzLjEuNiAgICAg4pyTIGRwbHlyICAgMS4wLjdcbuKckyB0aWR5ciAgIDEuMS40ICAgICDinJMgc3RyaW5nciAxLjQuMFxu4pyTIHJlYWRyICAgMi4xLjIgICAgIOKckyBmb3JjYXRzIDAuNS4xXG7ilIDilIAgQ29uZmxpY3RzIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCB0aWR5dmVyc2VfY29uZmxpY3RzKCkg4pSA4pSAXG54IEN5dG9iYW5rQVBJOjphdXRoZW50aWNhdGUoKSBtYXNrcyBodHRyOjphdXRoZW50aWNhdGUoKVxueCB0aWR5cjo6Y3Jvc3NpbmcoKSAgICAgICAgICAgbWFza3MgaWdyYXBoOjpjcm9zc2luZygpXG54IGRwbHlyOjpmaWx0ZXIoKSAgICAgICAgICAgICBtYXNrcyBzdGF0czo6ZmlsdGVyKClcbnggaHR0cjo6aGFuZGxlX3Jlc2V0KCkgICAgICAgIG1hc2tzIGN1cmw6OmhhbmRsZV9yZXNldCgpXG54IGRwbHlyOjpsYWcoKSAgICAgICAgICAgICAgICBtYXNrcyBzdGF0czo6bGFnKClcbnggcHVycnI6Om1hcCgpICAgICAgICAgICAgICAgIG1hc2tzIG1jbHVzdDo6bWFwKClcbnggcmVhZHI6OnBhcnNlX2RhdGUoKSAgICAgICAgIG1hc2tzIGN1cmw6OnBhcnNlX2RhdGUoKVxueCBwdXJycjo6c2ltcGxpZnkoKSAgICAgICAgICAgbWFza3MgaWdyYXBoOjpzaW1wbGlmeSgpXG4ifQ== -->
+<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
+  method         from
+  print.tbl_lazy     
+  print.tbl_sql      
+── Attaching packages ────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.1 ──
+✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+✓ tibble  3.1.6     ✓ dplyr   1.0.7
+✓ tidyr   1.1.4     ✓ stringr 1.4.0
+✓ readr   2.1.2     ✓ forcats 0.5.1
+── Conflicts ───────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+x CytobankAPI::authenticate() masks httr::authenticate()
+x tidyr::crossing()           masks igraph::crossing()
+x dplyr::filter()             masks stats::filter()
+x httr::handle_reset()        masks curl::handle_reset()
+x dplyr::lag()                masks stats::lag()
+x purrr::map()                masks mclust::map()
+x readr::parse_date()         masks curl::parse_date()
+x purrr::simplify()           masks igraph::simplify()</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShrbml0cikgI2ZvciBvdXRwdXR0aW5nIGFuZCBDeXRvYmFua0FQSVxuYGBgIn0= -->
+<pre class="r"><code>library(knitr) #for outputting and CytobankAPI</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>#load data</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGQgPC0gcmVhZC5Bbm5vdGF0ZWREYXRhRnJhbWUoZGF0YWRpcihcIi50eHRcIiksIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaGVhZGVyID0gVFJVRSwgc2VwID0gXCJcIiwgcm93Lm5hbWVzID0gMSlcbm15ZGF0YSA9IHJlYWQudGFibGUgKFwibXlkYXRhLnR4dFwiKVxucERhdGEocGQpXG5gYGAifQ== -->
+<pre class="r"><code>pd &lt;- read.AnnotatedDataFrame(datadir(&quot;.txt&quot;), 
+                              header = TRUE, sep = &quot;&quot;, row.names = 1)
+mydata = read.table (&quot;mydata.txt&quot;)
+pData(pd)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <p>#0. excluded cells that had less than 400000 reads, # reducing the initial dataset of 482 cells to 466</p>
 <p>#1. scde: Pairwise distances between cells</p>
 <p>#2. viSNE &lt;- tsne: Dimensionality reduction of the distances #is the source package tsne or Rtsne or cytobankAPI???</p>
@@ -342,7 +519,7 @@ library(knitr) #for outputting and CytobankAPI</code></pre>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">Ci0tLQp0aXRsZTogImRhdGFQcm9jIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpyZXF1aXJlZCBwYWNrYWdlczoKc2NkZSAzLjAgKGZyb20gYmlvY29uZHVjdG9yKSAKQ3l0b2JhbmtBUEkvdHNuZSAoZm9yIHZpU05FKQpjeXQgKGZvciB2aXN1YWxpemluZyB2aVNORSkgPz8/PwptY2x1c3QgNC40CmlncmFwaCAwLjcuMQpGYWN0b01pbmVSIDEuMjgKCmBgYHtyfQojc2NkZSBzcGVjaWFsIGluc3RhbGwKaWYgKCFyZXF1aXJlKCJCaW9jTWFuYWdlciIsIHF1aWV0bHkgPSBUUlVFKSkKICAgIGluc3RhbGwucGFja2FnZXMoIkJpb2NNYW5hZ2VyIikKYGBgCgpgYGB7cn0KQmlvY01hbmFnZXI6Omluc3RhbGwoInNjZGUiKQpgYGAKCmBgYHtyfQojaW5zdGFsbCBwYWNrYWdlcyB1c2luZyByZW1vdGVzICh3aXRoIHNwZWNpZmljIHZlcnNpb24pCmluc3RhbGwucGFja2FnZXMoInJlbW90ZXMiKSAgI2dldCBhbmQgaW5zdGFsbCByZW1vdGVzIGZpcnN0CmxpYnJhcnkocmVtb3RlcykgI2xvYWQgcmVtb3RlcyBiZWZvcmUgZXZlcnl0aGluZyBlbHNlCmluc3RhbGxfYmlvYygiMy4wL3NjZGUiLHVwZ3JhZGU9Im5ldmVyIikgI2luc3RhbGxpbmcgZnJvbSBiaW9jb25kdWN0b3IgZ2l0aHViIHBhZ2UKaW5zdGFsbF92ZXJzaW9uKCJzY2RlIiwiMy4wIikgI25vdCB1c2luZyB0aGUgYmlvY29uZHVjdG9yIGluc3RhbGwgZnVuY3Rpb24KaW5zdGFsbF92ZXJzaW9uKCJtY2x1c3QiLCI0LjQiKQppbnN0YWxsX3ZlcnNpb24oImlncmFwaCIsIjAuNy4xIikKaW5zdGFsbF92ZXJzaW9uKCJGYWN0b01pbmVSIiwiMS4yOCIpCmBgYAoKYGBge3J9CiNpbnN0YWxsIHBhY2thZ2VzIHdpdGhvdXQgdXNpbmcgcmVtb3RlcyAobm8gc3BlY2lmaWMgdmVyc2lvbikKaW5zdGFsbC5wYWNrYWdlcygiYmlvY29uZHVjdG9yIikgIz8/Cmluc3RhbGwucGFja2FnZXMoInNjZGUiKSAKaW5zdGFsbC5wYWNrYWdlcygiQ3l0b2JhbmtBUEkiKSAjZ3VhcmFudGVlZCBhbmQgaGFzIFZpU05FIHN1YnBhY2thZ2UsIGJ1dCBub3Qgc3VyZSBpZiBpdCdzIHRoZSBvbmUgYXNrZWQgYnkgcGFwZXIgKGZvciBWaVNORSkKaW5zdGFsbC5wYWNrYWdlcygidHNuZSIpICN2YWxpZCBwYWNrYWdlLCBtZW50aW9uZWQgaW4gcGFwZXIgYnV0IG1heSBub3QgYmUgcmlnaHQgb25lIGJlY2F1c2Ugbm8gc3VicGFja2FnZXMgKGZvciBWaVNORSkKaW5zdGFsbC5wYWNrYWdlcygiUnRzbmUiKQppbnN0YWxsLnBhY2thZ2VzKCJtY2x1c3QiKQppbnN0YWxsLnBhY2thZ2VzKCJpZ3JhcGgiKQppbnN0YWxsLnBhY2thZ2VzKCJGYWN0b01pbmVSIikKYGBgCgpgYGB7cn0KI2xvYWQgcGFja2FnZXMKbGlicmFyeShDeXRvYmFua0FQSSkKbGlicmFyeShiaW9jb25kdWN0b3IpCmxpYnJhcnkoc2NkZSkKbGlicmFyeSh0c25lKQpsaWJyYXJ5KFJ0c25lKQpsaWJyYXJ5KG1jbHVzdCkKbGlicmFyeShpZ3JhcGgpCmxpYnJhcnkoRmFjdG9NaW5lUikKbGlicmFyeSh0aWR5dmVyc2UpICNmb3IgdHNuZQpsaWJyYXJ5KGtuaXRyKSAjZm9yIG91dHB1dHRpbmcgYW5kIEN5dG9iYW5rQVBJCmBgYAoKCiNsb2FkIGRhdGEKCgojMC4gZXhjbHVkZWQgY2VsbHMgdGhhdCBoYWQgbGVzcyB0aGFuIDQwMDAwMCByZWFkcywgCiMgICByZWR1Y2luZyB0aGUgaW5pdGlhbCBkYXRhc2V0IG9mIDQ4MiBjZWxscyB0byA0NjYKCgojMS4gc2NkZTogUGFpcndpc2UgZGlzdGFuY2VzIGJldHdlZW4gY2VsbHMKCgoKIzIuIHZpU05FIDwtIHRzbmU6IERpbWVuc2lvbmFsaXR5IHJlZHVjdGlvbiBvZiB0aGUgZGlzdGFuY2VzCiNpcyB0aGUgc291cmNlIHBhY2thZ2UgdHNuZSBvciBSdHNuZSBvciBjeXRvYmFua0FQST8/PwoKIyNSdHNuZSBtZXRob2Q6CiNyZW1vdmUgbWlzc2luZyBkYXRhCiNtYWtlIHN1cmUgdW5pcXVlIHJvdyBJRCBleGlzdHMKCiMjY3l0b2JhbmtBUEkgbWV0aG9kOgojY3l0b2JhbmtBUEkgbmVlZHMgdXNlcm5hbWUgYW5kIHBhc3N3b3JkIGZvciBhdW50aGV0aGljYXRpb24gdG8gc2l0ZT8/PwojdmlTTkUgaXMgYSBQcmVtaXVtIEN5dG9iYW5rIGZlYXR1cmUKCiNlbmRwb2ludC5tZXRob2QgLT4gdmlTTkUgLCBkaW1lbnNpb25hbGl0eV9yZWR1Y3Rpb24KCiNjb3BpZWQgZnJvbSBodHRwczovL3JkcnIuaW8vY3Jhbi9DeXRvYmFua0FQSS9mL3ZpZ25ldHRlcy9jeXRvYmFuay1xdWlja3N0YXJ0LlJtZCBzZWN0aW9uOiAiTWFraW5nIGEgcmVxdWVzdCIKCiNSZXF1ZXN0cyB0byBDeXRvYmFuayBBUEkgZW5kcG9pbnRzIGNhbiBvbmx5IGJlIG1hZGUgYWZ0ZXIgYXV0aGVudGljYXRpbmcgKHNlZSBhYm92ZSkuIAojVGhlIGF1dGhlbnRpY2F0aW9uIG9iamVjdCB3aWxsIGJlIHBhc3NlZCBhcyB0aGUgZmlyc3QgcGFyYW1ldGVyIG9mIGFueSBlbmRwb2ludCByZXF1ZXN0LgoKIyBNYWtpbmcgYSByZXF1ZXN0IHRvIHRoZSAnZXhwZXJpbWVudHMnIGVuZHBvaW50IHRvIGNyZWF0ZSBhIG5ldyBleHBlcmltZW50CiNuZXdfZXhwZXJpbWVudCA8LSBleHBlcmltZW50cy5uZXcoY3l0b19zZXNzaW9uLCBleHBlcmltZW50X25hbWU9Ik15IE5ldyBFeHBlcmltZW50IiwgcHVycG9zZT0iQ3l0b2JhbmtBUEkgcXVpY2tzdGFydCB2aWduZXR0ZSIpCiMKI1ZpZXcobmV3X2V4cGVyaW1lbnQpCiMKI2MxIDwtIGMoMSwgMC4wMDcsIDAsIDAuMDAyMywgMCwgMC4wMDI2KQojCiNuZXdfZXhwZXJpbWVudF9kYXRhZnJhbWUgPC0gZGF0YS5mcmFtZShpZD1jKDEpLAojICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdmVyc2lvbj1jKDQyKSwKIyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHB1cnBvc2U9YygiQ3l0b2JhbmtBUEkgcXVpY2tzdGFydCB2aWduZXR0ZSIpLAojICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29tbWVudHM9YygiIiksCiMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwdWJsaWM9YyhGQUxTRSksCiMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZWxldGVkPWMoRkFMU0UpLAojICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc291cmNlcz1jKCIiKSwKIyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGV4cGVyaW1lbnROYW1lPWMoIk15IE5ldyBFeHBlcmltZW50IiksCiMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAuLi49YygiLi4uIiksCiMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJpbmdzQXNGYWN0b3JzPUZBTFNFKQojCiNrbml0cjo6a2FibGUobmV3X2V4cGVyaW1lbnRfZGF0YWZyYW1lKQoKCiNHZW5lcmF0aW5nIHZpU05FIG1hcHM6IChzZWUgU3VwcGxlbWVudGFyeSBUYWJsZSAyKQojICAgMmEuIHVuaWZvcm1seSBzdWJzYW1wbGUgYmV0d2VlbiA2LDAwMCBhbmQgMTIsMDAwIGNlbGxzCgoKIyAgIDJiLiBWaVNORSAoNTAwIGl0ZXJhdGlvbnMpIC0+IHByb2plY3QgZGF0YSB0byAyRAojICAgICAgIEFsbCBydW5zIHVzZWQ6CiMgICAgICAgICAgIDEuIGFuIGlkZW50aWNhbCByYW5kb20gc2VlZCAKIyAgICAgICAgICAgMi4gZGVmYXVsdCB0LVNORSBwYXJhbWV0ZXJzOiAKIyAgICAgICAgICAgICAgIDEuIHBlcnBsZXhpdHkgPSAzMAojICAgICAgICAgICAgICAgMi4gbW9tZW50dW0gPSAuLi4KIyAgICAgICAgICAgICAgICAgICBhLiAwLjUgZm9yIGluaXRpYWwgMjUwIGl0ZXJhdGlvbnMKIyAgICAgICAgICAgICAgICAgICBiLiAwLjggZm9yIHJlbWFpbmluZyAoMjUwKSBpdGVyYXRpb25zCiMgICAgICAgICAgICAgICAzLiBlcHNpbG9uID0gNTAwCiMgICAgICAgICAgICAgICA0LiBsaWUgZmFjdG9yID0gLi4uCiMgICAgICAgICAgICAgICAgICAgYS4gNCBmb3IgaW5pdGlhbCAxMDAgaXRlcmF0aW9ucwojICAgICAgICAgICAgICAgICAgIGIuIDEgZm9yIHJlbWFpbmluZyAoNDAwKSBpdGVyYXRpb25zIAoKCiMgICAyYy4gY3l0OiB2aXN1YWxpemUgdmlTTkUgbWFwcyBhbmQgZmlndXJlcyAKIyAgICAgICAgICAgIChjb2xvciBjb2RpbmcgYnkgc3VidHlwZSwgYnkgbWFya2VyIGV4cHJlc3Npb24gbGV2ZWxzIGFuZCBpbiBwbG90dGluZyBleHByZXNzaW9uIGxldmVsIGRlbnNpdGllcykuCiMgICAgICAgICAgICBub24tZXhpc3RlbnQ/Pz8KCgojMy4gbWNsdXN0OiBTdWJzZXF1ZW50IGNsdXN0ZXJpbmcgCiMgICAgICAgICAgIHcvIEJheWVzaWFuIGluZm9ybWF0aW9uIGNyaXRlcmlvbiAoQklDKSBmb3IgcGFyYW1ldGVyaXplZCBHYXVzc2lhbiBtaXh0dXJlIG1vZGVscyBmaXR0ZWQgYnkgRU0gYWxnb3JpdGhtIGluaXRpYWxpemVkIGJ5IG1vZGVsLWJhc2VkIGhpZXJhcmNoaWNhbCBjbHVzdGVyaW5nCgoKIzQuIGlncmFwaDogTWluaW11bSBzcGFubmluZyB0cmVlcywgY29tbXVuaXR5IGlkZW50aWZpY2F0aW9uIGFuZCBjb21wdXRhdGlvbiBvZiBsb25nZXN0IHBhdGhzIAoKCiM1LiBGYWN0b01pbmVSOiBQcmluY2lwYWwgY29tcG9uZW50cyBhbmFseXNpcyAoUENBKQoK</div>
+<div id="rmd-source-code">Ci0tLQp0aXRsZTogImRhdGFQcm9jIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpyZXF1aXJlZCBwYWNrYWdlczoKc2NkZSAzLjAgKGZyb20gYmlvY29uZHVjdG9yKSAKQ3l0b2JhbmtBUEkvdHNuZSAoZm9yIHZpU05FKQpjeXQgKGZvciB2aXN1YWxpemluZyB2aVNORSkgPz8/PwptY2x1c3QgNC40CmlncmFwaCAwLjcuMQpGYWN0b01pbmVSIDEuMjgKCmBgYHtyfQojc2NkZSBzcGVjaWFsIGluc3RhbGwKaWYgKCFyZXF1aXJlKCJCaW9jTWFuYWdlciIsIHF1aWV0bHkgPSBGQUxTRSkpCiAgICBpbnN0YWxsLnBhY2thZ2VzKCJCaW9jTWFuYWdlciIpCmBgYApSdW4gdGhpcyBpbiB0ZXJtaW5hbCBiZWZvcmUgYXR0ZW1wdGluZyB0byBpbnN0YWxsIHNjZGUsIGJlY2F1c2UgY2Fpcm8gaXMgbm90IHByZS1pbnN0YWxsZWQ6CnN1ZG8gYXB0LWdldCBpbnN0YWxsIGxpYmNhaXJvMi1kZXYKYGBge3J9CkJpb2NNYW5hZ2VyOjppbnN0YWxsKCJzY2RlIikKYGBgCgpyZW1vdGVzIHBhY2thZ2VzIGNhbiBiZSB1c2VkIHRvIGluc3RhbGwgb25seSBtY2x1c3QsIGlncmFwaCBhbmQgRmFjdG9NaW5lUi4KYGBge3J9CiNpbnN0YWxsIHBhY2thZ2VzIHVzaW5nIHJlbW90ZXMgKHdpdGggc3BlY2lmaWMgdmVyc2lvbikKaW5zdGFsbC5wYWNrYWdlcygicmVtb3RlcyIpICAjZ2V0IGFuZCBpbnN0YWxsIHJlbW90ZXMgZmlyc3QKbGlicmFyeShyZW1vdGVzKSAjbG9hZCByZW1vdGVzIGJlZm9yZSBldmVyeXRoaW5nIGVsc2UKI2luc3RhbGxfYmlvYygiMy4wL3NjZGUiLHVwZ3JhZGU9Im5ldmVyIikgI2luc3RhbGxpbmcgZnJvbSBiaW9jb25kdWN0b3IgZ2l0aHViIHBhZ2UKI2luc3RhbGxfdmVyc2lvbigic2NkZSIsIjMuMCIpICNub3QgdXNpbmcgdGhlIGJpb2NvbmR1Y3RvciBpbnN0YWxsIGZ1bmN0aW9uCmluc3RhbGxfdmVyc2lvbigibWNsdXN0IiwiNC40IikKaW5zdGFsbF92ZXJzaW9uKCJpZ3JhcGgiLCIwLjcuMSIpCmluc3RhbGxfdmVyc2lvbigiRmFjdG9NaW5lUiIsIjEuMjgiKQpgYGAKCmBgYHtyfQojaW5zdGFsbCBwYWNrYWdlcyB3aXRob3V0IHVzaW5nIHJlbW90ZXMgKG5vIHNwZWNpZmljIHZlcnNpb24pCiNpbnN0YWxsLnBhY2thZ2VzKCJiaW9jb25kdWN0b3IiKSAjPz8KI2luc3RhbGwucGFja2FnZXMoInNjZGUiKSAKaW5zdGFsbC5wYWNrYWdlcygiQ3l0b2JhbmtBUEkiKSAjZ3VhcmFudGVlZCBhbmQgaGFzIFZpU05FIHN1YnBhY2thZ2UsIGJ1dCBub3Qgc3VyZSBpZiBpdCdzIHRoZSBvbmUgYXNrZWQgYnkgcGFwZXIgKGZvciBWaVNORSkKaW5zdGFsbC5wYWNrYWdlcygidHNuZSIpICN2YWxpZCBwYWNrYWdlLCBtZW50aW9uZWQgaW4gcGFwZXIgYnV0IG1heSBub3QgYmUgcmlnaHQgb25lIGJlY2F1c2Ugbm8gc3VicGFja2FnZXMgKGZvciBWaVNORSkKaW5zdGFsbC5wYWNrYWdlcygiUnRzbmUiKQojaW5zdGFsbC5wYWNrYWdlcygibWNsdXN0IikKI2luc3RhbGwucGFja2FnZXMoImlncmFwaCIpCiNpbnN0YWxsLnBhY2thZ2VzKCJGYWN0b01pbmVSIikKYGBgCgpgYGB7cn0KI2xvYWQgcGFja2FnZXMKbGlicmFyeShDeXRvYmFua0FQSSkKbGlicmFyeShCaW9jTWFuYWdlcikKbGlicmFyeShzY2RlKQpsaWJyYXJ5KHRzbmUpCmxpYnJhcnkoUnRzbmUpCmxpYnJhcnkobWNsdXN0KQpsaWJyYXJ5KGlncmFwaCkKbGlicmFyeShGYWN0b01pbmVSKQpsaWJyYXJ5KHRpZHl2ZXJzZSkgI2ZvciB0c25lCmxpYnJhcnkoa25pdHIpICNmb3Igb3V0cHV0dGluZyBhbmQgQ3l0b2JhbmtBUEkKYGBgCgoKI2xvYWQgZGF0YQoKYGBge3J9CnBkIDwtIHJlYWQuQW5ub3RhdGVkRGF0YUZyYW1lKGRhdGFkaXIoIi50eHQiKSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhlYWRlciA9IFRSVUUsIHNlcCA9ICIiLCByb3cubmFtZXMgPSAxKQpteWRhdGEgPSByZWFkLnRhYmxlICgibXlkYXRhLnR4dCIpCnBEYXRhKHBkKQpgYGAKCgojMC4gZXhjbHVkZWQgY2VsbHMgdGhhdCBoYWQgbGVzcyB0aGFuIDQwMDAwMCByZWFkcywgCiMgICByZWR1Y2luZyB0aGUgaW5pdGlhbCBkYXRhc2V0IG9mIDQ4MiBjZWxscyB0byA0NjYKCgojMS4gc2NkZTogUGFpcndpc2UgZGlzdGFuY2VzIGJldHdlZW4gY2VsbHMKCgoKIzIuIHZpU05FIDwtIHRzbmU6IERpbWVuc2lvbmFsaXR5IHJlZHVjdGlvbiBvZiB0aGUgZGlzdGFuY2VzCiNpcyB0aGUgc291cmNlIHBhY2thZ2UgdHNuZSBvciBSdHNuZSBvciBjeXRvYmFua0FQST8/PwoKIyNSdHNuZSBtZXRob2Q6CiNyZW1vdmUgbWlzc2luZyBkYXRhCiNtYWtlIHN1cmUgdW5pcXVlIHJvdyBJRCBleGlzdHMKCiMjY3l0b2JhbmtBUEkgbWV0aG9kOgojY3l0b2JhbmtBUEkgbmVlZHMgdXNlcm5hbWUgYW5kIHBhc3N3b3JkIGZvciBhdW50aGV0aGljYXRpb24gdG8gc2l0ZT8/PwojdmlTTkUgaXMgYSBQcmVtaXVtIEN5dG9iYW5rIGZlYXR1cmUKCiNlbmRwb2ludC5tZXRob2QgLT4gdmlTTkUgLCBkaW1lbnNpb25hbGl0eV9yZWR1Y3Rpb24KCiNjb3BpZWQgZnJvbSBodHRwczovL3JkcnIuaW8vY3Jhbi9DeXRvYmFua0FQSS9mL3ZpZ25ldHRlcy9jeXRvYmFuay1xdWlja3N0YXJ0LlJtZCBzZWN0aW9uOiAiTWFraW5nIGEgcmVxdWVzdCIKCiNSZXF1ZXN0cyB0byBDeXRvYmFuayBBUEkgZW5kcG9pbnRzIGNhbiBvbmx5IGJlIG1hZGUgYWZ0ZXIgYXV0aGVudGljYXRpbmcgKHNlZSBhYm92ZSkuIAojVGhlIGF1dGhlbnRpY2F0aW9uIG9iamVjdCB3aWxsIGJlIHBhc3NlZCBhcyB0aGUgZmlyc3QgcGFyYW1ldGVyIG9mIGFueSBlbmRwb2ludCByZXF1ZXN0LgoKIyBNYWtpbmcgYSByZXF1ZXN0IHRvIHRoZSAnZXhwZXJpbWVudHMnIGVuZHBvaW50IHRvIGNyZWF0ZSBhIG5ldyBleHBlcmltZW50CiNuZXdfZXhwZXJpbWVudCA8LSBleHBlcmltZW50cy5uZXcoY3l0b19zZXNzaW9uLCBleHBlcmltZW50X25hbWU9Ik15IE5ldyBFeHBlcmltZW50IiwgcHVycG9zZT0iQ3l0b2JhbmtBUEkgcXVpY2tzdGFydCB2aWduZXR0ZSIpCiMKI1ZpZXcobmV3X2V4cGVyaW1lbnQpCiMKI2MxIDwtIGMoMSwgMC4wMDcsIDAsIDAuMDAyMywgMCwgMC4wMDI2KQojCiNuZXdfZXhwZXJpbWVudF9kYXRhZnJhbWUgPC0gZGF0YS5mcmFtZShpZD1jKDEpLAojICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdmVyc2lvbj1jKDQyKSwKIyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHB1cnBvc2U9YygiQ3l0b2JhbmtBUEkgcXVpY2tzdGFydCB2aWduZXR0ZSIpLAojICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29tbWVudHM9YygiIiksCiMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwdWJsaWM9YyhGQUxTRSksCiMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZWxldGVkPWMoRkFMU0UpLAojICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc291cmNlcz1jKCIiKSwKIyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGV4cGVyaW1lbnROYW1lPWMoIk15IE5ldyBFeHBlcmltZW50IiksCiMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAuLi49YygiLi4uIiksCiMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJpbmdzQXNGYWN0b3JzPUZBTFNFKQojCiNrbml0cjo6a2FibGUobmV3X2V4cGVyaW1lbnRfZGF0YWZyYW1lKQoKCiNHZW5lcmF0aW5nIHZpU05FIG1hcHM6IChzZWUgU3VwcGxlbWVudGFyeSBUYWJsZSAyKQojICAgMmEuIHVuaWZvcm1seSBzdWJzYW1wbGUgYmV0d2VlbiA2LDAwMCBhbmQgMTIsMDAwIGNlbGxzCgoKIyAgIDJiLiBWaVNORSAoNTAwIGl0ZXJhdGlvbnMpIC0+IHByb2plY3QgZGF0YSB0byAyRAojICAgICAgIEFsbCBydW5zIHVzZWQ6CiMgICAgICAgICAgIDEuIGFuIGlkZW50aWNhbCByYW5kb20gc2VlZCAKIyAgICAgICAgICAgMi4gZGVmYXVsdCB0LVNORSBwYXJhbWV0ZXJzOiAKIyAgICAgICAgICAgICAgIDEuIHBlcnBsZXhpdHkgPSAzMAojICAgICAgICAgICAgICAgMi4gbW9tZW50dW0gPSAuLi4KIyAgICAgICAgICAgICAgICAgICBhLiAwLjUgZm9yIGluaXRpYWwgMjUwIGl0ZXJhdGlvbnMKIyAgICAgICAgICAgICAgICAgICBiLiAwLjggZm9yIHJlbWFpbmluZyAoMjUwKSBpdGVyYXRpb25zCiMgICAgICAgICAgICAgICAzLiBlcHNpbG9uID0gNTAwCiMgICAgICAgICAgICAgICA0LiBsaWUgZmFjdG9yID0gLi4uCiMgICAgICAgICAgICAgICAgICAgYS4gNCBmb3IgaW5pdGlhbCAxMDAgaXRlcmF0aW9ucwojICAgICAgICAgICAgICAgICAgIGIuIDEgZm9yIHJlbWFpbmluZyAoNDAwKSBpdGVyYXRpb25zIAoKCiMgICAyYy4gY3l0OiB2aXN1YWxpemUgdmlTTkUgbWFwcyBhbmQgZmlndXJlcyAKIyAgICAgICAgICAgIChjb2xvciBjb2RpbmcgYnkgc3VidHlwZSwgYnkgbWFya2VyIGV4cHJlc3Npb24gbGV2ZWxzIGFuZCBpbiBwbG90dGluZyBleHByZXNzaW9uIGxldmVsIGRlbnNpdGllcykuCiMgICAgICAgICAgICBub24tZXhpc3RlbnQ/Pz8KCgojMy4gbWNsdXN0OiBTdWJzZXF1ZW50IGNsdXN0ZXJpbmcgCiMgICAgICAgICAgIHcvIEJheWVzaWFuIGluZm9ybWF0aW9uIGNyaXRlcmlvbiAoQklDKSBmb3IgcGFyYW1ldGVyaXplZCBHYXVzc2lhbiBtaXh0dXJlIG1vZGVscyBmaXR0ZWQgYnkgRU0gYWxnb3JpdGhtIGluaXRpYWxpemVkIGJ5IG1vZGVsLWJhc2VkIGhpZXJhcmNoaWNhbCBjbHVzdGVyaW5nCgoKIzQuIGlncmFwaDogTWluaW11bSBzcGFubmluZyB0cmVlcywgY29tbXVuaXR5IGlkZW50aWZpY2F0aW9uIGFuZCBjb21wdXRhdGlvbiBvZiBsb25nZXN0IHBhdGhzIAoKCiM1LiBGYWN0b01pbmVSOiBQcmluY2lwYWwgY29tcG9uZW50cyBhbmFseXNpcyAoUENBKQoK</div>
 
 
 
