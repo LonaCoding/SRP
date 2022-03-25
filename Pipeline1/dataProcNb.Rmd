@@ -87,6 +87,7 @@ GSM1658366_nochipID4.C96.csv
 
 
 ```{r}
+#tetsing only
 #data <- read.csv(file.choose()) #if want to select file from pop-up window
 data<-read.csv("../../../gseCSV/GSM1657871_1772078217.C03.csv", header = FALSE, stringsAsFactors = FALSE, sep = "\t") #use relative path
 print(data)
@@ -94,38 +95,59 @@ print(data)
 
 find a way to put all csv into a single DF/matrix
 all input files starts with "GSM165"
+
+```{r}
+#get all filenames starting with "GSM" (or "GSM165") using pattern matching and put into list
+inputFileList<-list.files(path="../../../gseCSV",pattern="^GSM")#,full.names =)#,recursive = )
+
+print(inputFileList)
+```
+
+```{r}
+#proof of concept: removing extension from filenames
+test_inputFileList<-inputFileList
+test_inputFileList<-sub(".csv$", "", test_inputFileList)
+print(test_inputFileList)
+```
+
+
 all input files has same first column, which acts as index.
-suggestion: rename 2nd column's header to match source filename
+rename 2nd column's header to match source filename
+remove redundant first column
 then, append to bigger dataframe horizontally (by column)
+end result is a single dataframe containing all concatenated data from multiple csv files
 
 ```{r}
 #df<-read.csv("../../../gseCSV/GSM1657871_1772078217.C03.csv", header = FALSE, stringsAsFactors = FALSE, sep = "\t") #use relative path
-df<-data.frame(nrow=22088) #initialize empty 22088x0 dataframe for receiving input files
-filenameList<-c("../../../gseCSV/GSM1657872_1772078217.C04.csv","../../../gseCSV/GSM1657873_1772078217.C06.csv","../../../gseCSV/GSM1657874_1772078217.C07.csv") #list of input files with full path name and extension 
-fnl<-c("GSM1657871_1772078217.C03","GSM1657872_1772078217.C04","GSM1657873_1772078217.C06","GSM1657874_1772078217.C07") #list of input files, but without full path name and extension
+inGSE_df<-data.frame(nrow=22088) #initialize empty 22088x0 dataframe for receiving input files
+#inputFileNameList<-c("../../../gseCSV/GSM1657872_1772078217.C04.csv","../../../gseCSV/GSM1657873_1772078217.C06.csv","../../../gseCSV/GSM1657874_1772078217.C07.csv") #list of input files with full path name and extension 
+#inputFileNameList<-c("GSM1657871_1772078217.C03","GSM1657872_1772078217.C04","GSM1657873_1772078217.C06","GSM1657874_1772078217.C07") #list of input files, but without full path name and extension
 first=1 #set first inout dataframe flag to TRUE
+inputFileNameList<-inputFileList #use list of file names gained from previous cell
 
-for (f in fnl){
-  fn<-paste("../../../gseCSV/", f,".csv", sep ="") #reconstruct full path and filename
-  fi<-paste(f,"_Index")
+for (f in inputFileNameList){
+  #fn<-paste("../../../gseCSV/", f,".csv", sep ="") #reconstruct full path and filename
+  fn<-paste("../../../gseCSV/", f, sep ="") #reconstruct full relative path and filename with extension already included
+  fs<-sub(".csv$", "", f) #remove extension from file name
+  fi<-paste(fs,"_Index")
   #print(fn) #displays input filenames
   
   df2<-read.csv(fn, header = FALSE, stringsAsFactors = FALSE, sep = "\t")
   
   names(df2)[1]<- fi #rename first column's header
-  names(df2)[2]<- f #rename second column's header
+  names(df2)[2]<- fs #rename second column's header
   
   if (first==0){ #If current input dataframe is not the first in entire dataframe
     df2[1]<-NULL #drop first column, because it's redundant (deactivate this line to perform all-column append to see if all rows align)
   }
   
-  df<-cbind(df,df2) #append new df
+  inGSE_df<-cbind(inGSE_df,df2) #append new df
   first=0 #no longer the first dataframe, set flag to FALSE
 }
 
-df[1]<-NULL #drop first column (not used)
+inGSE_df[1]<-NULL #drop first column (not used. final cleanup)
 
-print(df)
+print(inGSE_df)
 ```
 
 
@@ -141,10 +163,14 @@ print(mat)
 
 #0. excluded cells that had less than 400000 reads, 
 #   reducing the initial dataset of 482 cells to 466
+already done in imported GSE dataset (466 columns excluding index column)
 
 
 #1. scde: Pairwise distances between cells
 
+```{r}
+scde_df<-inGSE_df
+```
 
 
 #2. viSNE <- tsne: Dimensionality reduction of the distances
