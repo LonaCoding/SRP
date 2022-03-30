@@ -11,7 +11,6 @@ E_id2 <- toJSON(row.names(cluster2))
 E_id3 <- toJSON(row.names(cluster3))
 E_id4 <- toJSON(row.names(cluster4))
 E_id5 <- toJSON(row.names(cluster5))
-
 print(attributes(E_id0))
 #Send GET requests 
 #Cluster 0
@@ -19,10 +18,6 @@ body0 <- list(api=1, ids=E_id0)
 response_0 <- POST(url, body=body0)
 converted0 <- fromJSON(rawToChar(response_0$content),flatten=TRUE)
 converted0 <- as.vector(converted0)
-
-#Set rowname 
-#nams0 <- make.names(converted0,unique=TRUE) 
-#row.names(cluster0) <- nams0
 
 #Cluster 1 
 body1 <- list(api=1, ids=E_id1)
@@ -49,7 +44,31 @@ converted4 <- fromJSON(rawToChar(response_4$content),flatten=TRUE)
 converted4 <- as.vector(converted4)
 
 #Cluster 5 
-body5 <- list(api=1, ids=E_id5)
+body5<- list(api=1, ids=E_id5)
 response_5 <- POST(url, body=body5)
 converted5 <- fromJSON(rawToChar(response_5$content),flatten=TRUE)
 converted5 <- as.vector(converted5)
+
+head(converted1,5)
+head(converted2,5)
+head(converted3,5)
+
+#Set rownames 
+nams0 <- make.names(converted0,unique=TRUE) 
+row.names(cluster0) <- nams0
+
+nams1 <- make.names(converted1, unique=TRUE)
+row.names(cluster1) <- nams1 
+
+nams2 <- make.names(converted2, unique=TRUE)
+row.names(cluster2) <- nams2 
+
+nams3 <- make.names(converted3, unique=TRUE)
+row.names(cluster3) <- nams3 
+
+nams4 <- make.names(converted4, unique=TRUE)
+row.names(cluster4) <- nams4 
+
+
+nams5 <- make.names(converted5, unique=TRUE)
+row.names(cluster5) <- nams5 
