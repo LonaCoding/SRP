@@ -67,7 +67,7 @@ color: #FFAB4C;
   font-family: 'Monserrat', sans-serif;
 }
 
-.aims-objectives-text {
+.aims-objectives-text { /* Consider renaming to more general-purpose name*/
   color: #142F43
 }
 
@@ -76,7 +76,7 @@ color: #FFAB4C;
   background-color: #FFAB4C;
 
 }
-.hr-aims {
+.hr-aims { /* Consider renaming to more general-purpose name*/
   border-bottom: 5px solid;
   border-color: #FFAB4C;
 
