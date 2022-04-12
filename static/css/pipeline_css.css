@@ -1,0 +1,95 @@
+
+/* Navigation Bar */
+
+.navbar{
+  padding: 0 0 4.5rem;
+}
+
+.navbar-brand {
+  font-family: 'Ubuntu';
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.nav-item {
+  padding: 0px 18px;
+}
+.navbar .navbar-text {
+  color: #FFAB4C
+}
+.nav-link{
+  font-size: 1.2rem;
+  font-family: 'Montserrat'
+  font-weight: 300;
+}
+
+/* Title and introduction */
+
+#Title-intro {
+  background-color: #142F43;
+}
+
+#Subsection {
+  background-color: #FFFFFF;
+}
+
+.container-fluid {
+  padding: 3% 15%;
+}
+.placeholder-image {
+  padding-left: 10rem;
+}
+
+h1 {
+font-family: 'Montserrat', sans-serif;
+font-weight: 900;
+color: #FFAB4C;
+
+}
+.Intro {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  color: #FFFFFF;
+
+}
+
+/* Body alignment for main body and footer */
+/*body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex-grow: 1;
+} */
+
+/* Results section */
+#Results{
+  font-family: 'Monserrat', sans-serif;
+}
+.middle-break{
+  height: 50px;
+  background-color: #FFAB4C;
+}
+
+.pipeline-title {
+  color: #142F43;
+  text-align: center;
+  font-weight: bold;
+}
+
+.placeholder-image {
+  margin: 5% 17%;
+}
+
+/* Footer */
+
+footer {
+  background-color: #142F43;
+  margin-bottom: 0;
+}
+.footer-text {
+  text-align: center;
+  font-family: 'Monserrat', sans-serif;
+  color: #FFFFFF
+}

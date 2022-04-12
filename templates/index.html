@@ -28,21 +28,19 @@
   <script src="https://kit.fontawesome.com/7dee2b22f9.js" crossorigin="anonymous"></script>
 
   <!-- Local CSS -->
-  <link rel="stylesheet" href="css/stylesheet.css">
+  <link rel="stylesheet" href="../static/css/stylesheet.css">
 
 </head>
 
 <body>
   <section id='Title-intro'>
-    <!-- <section id='Subsection'>   -->
 
     <!-- Navigation Bar -->
     <div class="container-fluid">
 
 
     <nav class="navbar navbar-expand-lg navbar-dark">
-    <!-- <nav class="navbar navbar-expand-lg navbar-light"> -->
-        <a class="navbar-brand brand-title" href="#">SRP - B</a>
+        <a class="navbar-brand brand-title" href="/">SRP - B</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -56,14 +54,14 @@
                 Analysis Pipelines
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Pipeline 1</a></li>
-                <li><a class="dropdown-item" href="#">Pipeline 2</a></li>
+                <li><a class="dropdown-item" href="/pipeline/1">Pipeline 1</a></li>
+                <li><a class="dropdown-item" href="pipeline/2">Pipeline 2</a></li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">References</a>
+              <a class="nav-link" href="/references">References</a>
             </li>
-            
+
           </ul>
         </div>
       </nav>
@@ -71,7 +69,15 @@
       <!-- Title and introduction -->
       <div class='row'>
         <div class='col-lg-6 col-md-1'>
-          <h1>References</h1>
+          <h1>Something about single cell</h1>
+          <p class='Intro'>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed augue id metus rhoncus gravida at at dolor. Nam id risus ac eros dictum dignissim sit amet vitae sapien. Vivamus eget condimentum nisi. Cras non tincidunt nunc. Ut
+            rutrum tempor magna, eu lacinia tellus pellentesque a.
+          </p>
+          <button type="button" class="btn btn-outline-light btn-lg pipe-button"><i class="fa-solid fa-circle-arrow-down"></i> Project Overview</button>
+        </div>
+        <div class='col-lg-6 col-md-1'>
+          <img src="https://picsum.photos/300/300" alt="placeholder-image" class='placeholder-image'>
         </div>
       </div>
       </div>
@@ -82,31 +88,26 @@
 <hr class='middle-break' style ='height:20px; margin-top:0;'>
 
   <div class='container'>
-    <h2 class=aims-objectives-text> Source codes:</h2>
-    <hr class='hr-aims'>
-    <p>
-      Github:
-      <!-- Temporary! Replace with proper button -->
-      <a href="https://github.com/LonaCoding/SRP">https://github.com/LonaCoding/SRP</a> 
-    </p>
-    <!-- insert github link as button here-->
-    <p>
-      tar.gz folder:
-      <!-- Temporary! Replace with proper button -->
-      <a href="urlHere">Download</a> 
-    </p>
-    <h2 class=aims-objectives-text> List of References:</h2>
-    <hr class='hr-aims'>
-    <p>
-      List of References:
-    </p>
-    <li>Ref 1</li>
-    <li>Ref 2</li>
+    <div class='row'>
+    <div class='col-lg-4'>
+      <h2 class=aims-objectives-text> Aims and Objectives</h2>
+      <hr class='hr-aims'>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed augue id metus rhoncus gravida at at dolor. Nam id risus ac eros dictum dignissim sit amet vitae sapien. Vivamus eget condimentum nisi. Cras non tincidunt nunc. Ut
+        rutrum tempor magna, eu lacinia tellus pellentesque a.
+      </p>
+    </div>
+    <div class='col-lg-8 project-overview'>
+      <h2 class='project-overview-text'> Project Overview</h2>
+      </div>
+    </div>
   </div>
-<footer id='footer'>
-  <p class='footer-text'>
-     footer 
-  </p>
+
+   <footer id='footer' class='footer mt auto py-3'>
+        <p class='footer-text'>
+          footer
+        </p>
+      </footer> 
 </footer>
 
 </section>

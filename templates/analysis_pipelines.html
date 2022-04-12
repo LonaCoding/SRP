@@ -28,7 +28,7 @@
   <script src="https://kit.fontawesome.com/7dee2b22f9.js" crossorigin="anonymous"></script>
 
   <!-- Local CSS -->
-  <link rel="stylesheet" href="css/stylesheet.css">
+  <link rel="stylesheet" href="../../../static/css/pipeline_css.css">
 
 </head>
 
@@ -40,7 +40,7 @@
 
 
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand brand-title" href="#">SRP - B</a>
+        <a class="navbar-brand brand-title" href="/">SRP - B</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -54,62 +54,71 @@
                 Analysis Pipelines
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Pipeline 1</a></li>
-                <li><a class="dropdown-item" href="#">Pipeline 2</a></li>
+                <li><a class="dropdown-item" href="/pipeline/1">Pipeline 1</a></li>
+                <li><a class="dropdown-item" href="pipeline/2">Pipeline 2</a></li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">References</a>
+              <a class="nav-link" href="/references">References</a>
             </li>
-            
+
           </ul>
         </div>
       </nav>
 
       <!-- Title and introduction -->
-      <div class='row'>
-        <div class='col-lg-6 col-md-1'>
-          <h1>Something about single cell</h1>
-          <p class='Intro'>
+
+      <div class='container-fluid'>
+        <h1>Pipeline introduction / methods</h1>
+        <p class='Intro'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed augue id metus rhoncus gravida at at dolor. Nam id risus ac eros dictum dignissim sit amet vitae sapien. Vivamus eget condimentum nisi. Cras non tincidunt nunc. Ut
+          rutrum tempor magna, eu lacinia tellus pellentesque a.
+        </p>
+      </div>
+    </div>
+
+  </section>
+  <main>
+    <section id='Results'>
+      <hr class='middle-break' style='height:20px; margin-top:0;'>
+      <h2 class='pipeline-title'> Pipeline subtitle</h2>
+
+      <div class='container results'>
+        <div class='results-text'>
+          <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed augue id metus rhoncus gravida at at dolor. Nam id risus ac eros dictum dignissim sit amet vitae sapien. Vivamus eget condimentum nisi. Cras non tincidunt nunc. Ut
             rutrum tempor magna, eu lacinia tellus pellentesque a.
           </p>
-          <button type="button" class="btn btn-outline-light btn-lg pipe-button"><i class="fa-solid fa-circle-arrow-down"></i> Project Overview</button>
         </div>
-        <div class='col-lg-6 col-md-1'>
-          <img src="https://picsum.photos/300/300" alt="placeholder-image" class='placeholder-image'>
-        </div>
-      </div>
-      </div>
+        <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-interval='false'>
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          </div>
+          <div class='carousel-inner'>
+            <div class="carousel-item active">
+              <img src="https://picsum.photos/300/250" alt="placeholder-image" class='placeholder-image d-block w-50'>
+              <div class='carousel-caption d-none d-md-block'>
+                Figure text
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://picsum.photos/300/250" alt="placeholder-image" class='placeholder-image d-block w-50'>
+              <div class="carousel-caption d-none d-md-block">
+                Figure text
+              </div>
+            </div>
+          </div>
 
-  </section>
+    </section>
+  </main>
 
-<section id='project-overview'>
-<hr class='middle-break' style ='height:20px; margin-top:0;'>
 
-  <div class='container'>
-    <div class='row'>
-    <div class='col-lg-4'>
-      <h2 class=aims-objectives-text> Aims and Objectives</h2>
-      <hr class='hr-aims'>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed augue id metus rhoncus gravida at at dolor. Nam id risus ac eros dictum dignissim sit amet vitae sapien. Vivamus eget condimentum nisi. Cras non tincidunt nunc. Ut
-        rutrum tempor magna, eu lacinia tellus pellentesque a.
+ <footer id='footer' class='footer mt auto py-3'>
+      <p class='footer-text'>
+        footer
       </p>
-    </div>
-    <div class='col-lg-8 project-overview'>
-      <h2 class='project-overview-text'> Project Overview</h2>
-      </div>
-    </div>
-  </div>
-<footer id='footer'>
-  <p class='footer-text'>
-     footer 
-  </p>
-</footer>
-
-</section>
-
+    </footer>
 
 </body>
 
