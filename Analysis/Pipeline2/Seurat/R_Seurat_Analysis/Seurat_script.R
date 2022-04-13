@@ -36,16 +36,13 @@ jack_pca <- ScoreJackStraw(jack_pca, dims=1:50)
 JackStrawPlot(jack_pca, dims = 10:30) #13?
 
 #Cluster the cells, chosen dims is 15 
-cluster_data <- FindNeighbors(pca_data,dims=1:13)
+cluster_data <- FindNeighbors(pca_data,dims=1:15)
 cluster_data <- FindClusters(cluster_data,resolution=0.5)
 head(Idents(cluster_data),5)
 
-#kmeans clustering
-kmean
-
 
 # tSNE 
-tSNE_data <- RunTSNE(cluster_data, dims=1:34)
+tSNE_data <- RunTSNE(cluster_data, dims=1:15)
 DimPlot(tSNE_data, reduction='tsne')
 
 #Defining markers for clusters 
@@ -54,5 +51,4 @@ cluster1 <- FindMarkers(tSNE_data, ident.1 = 1)
 cluster2 <- FindMarkers(tSNE_data, ident.1 = 2)
 cluster3 <- FindMarkers(tSNE_data, ident.1 = 3)
 cluster4 <- FindMarkers(tSNE_data, ident.1 = 4)
-
-head(cluster0,5)
+cluster5 <- FindMarkers(tSNE_data, ident.1 = 5)

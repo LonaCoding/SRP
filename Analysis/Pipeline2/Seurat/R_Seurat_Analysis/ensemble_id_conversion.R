@@ -72,3 +72,14 @@ row.names(cluster4) <- nams4
 
 nams5 <- make.names(converted5, unique=TRUE)
 row.names(cluster5) <- nams5 
+
+print(head(cluster2,10))
+
+#Writing cluster tables to csv files 
+write.table(cluster1,file='cluster1.csv', sep=',',row.names = TRUE)
+write.table(cluster2,file='cluster2.csv', sep=',')
+write.table(cluster3,file='cluster3.csv', sep=',')
+write.table(cluster4,file='cluster4.csv', sep=',')
+write.table(cluster5,file='cluster5.csv', sep=',')
+
+
