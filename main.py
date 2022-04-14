@@ -1,8 +1,18 @@
 from flask import Flask
 from flask import render_template
 import sqlite3
-import sqlalchemy
+
+
 app = Flask(__name__)
+
+connection = sqlite3.connect('database/GeneQuery2.db')
+cursor = connection.cursor()
+
+cursor.execute('SELECT genes FROM cluster_2')
+rows = cursor.fetchall()
+print(rows)
+
+
 
 @app.route('/')
 def index():
@@ -15,9 +25,8 @@ def pipeline(number):
 
 @app.route('/pipeline/<int:number>/query')
 def gene_query(number):
-    db = sqlite3.connect(f'database/GeneQuery{number}.db')
-    
-    return render_template('index.html')
+
+    return render_template('genequery.html')
 
 
 

@@ -7,10 +7,9 @@ counts <- as.matrix(counts)
 counts <- counts[,-1]
 counts <- CreateSeuratObject(counts = counts)
 
-
-
 #Normalise data 
 norm_counts <- NormalizeData(counts, normalization.method = 'RC', scale.factor = 1e6)
+
 
 #Highly variable features 
 variable_features <- FindVariableFeatures(norm_counts, selection.method = 'vst')
@@ -52,3 +51,4 @@ cluster2 <- FindMarkers(tSNE_data, ident.1 = 2)
 cluster3 <- FindMarkers(tSNE_data, ident.1 = 3)
 cluster4 <- FindMarkers(tSNE_data, ident.1 = 4)
 cluster5 <- FindMarkers(tSNE_data, ident.1 = 5)
+
