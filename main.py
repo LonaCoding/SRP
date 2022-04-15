@@ -2,7 +2,6 @@ from flask import Flask
 from flask import render_template
 import sqlite3
 
-
 app = Flask(__name__)
 
 connection = sqlite3.connect('database/GeneQuery2.db')
@@ -11,7 +10,6 @@ cursor = connection.cursor()
 cursor.execute('SELECT * FROM cluster2 WHERE genes="ETNPPL"')
 rows = cursor.fetchall()
 print(rows)
-
 
 
 @app.route('/')
@@ -23,12 +21,10 @@ def index():
 def pipeline(number):
     return render_template('analysis_pipelines.html')
 
+
 @app.route('/pipeline/<int:number>/query')
 def gene_query(number):
-
     return render_template('genequery.html')
-
-
 
 
 @app.route('/references')
