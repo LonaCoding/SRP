@@ -87,8 +87,27 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed augue id metus rhoncus gravida at at dolor. Nam id risus ac eros dictum dignissim sit amet vitae sapien. Vivamus eget condimentum nisi. Cras non tincidunt nunc. Ut
         rutrum tempor magna, eu lacinia tellus pellentesque a.
       </p>
+      <div class='mb-5'>
+        <select id='select-clusters', class='form-select', style='width:50%;'>
+          <option selected> Choose cluster... </option>
+          <option> <!--Insert jinja template here --> </option>
+        </select>
+      </div>
+
+      <div class='mb-5'>
+        <label for="gene-query"> Insert HGNC symbols for gene</label>
+        <input type="text" class = 'form-control' style='width:50%;'>
+      </div>
+
+      <div class ='mb-5'>
+        <button type='submit' class= 'btn btn-warning'> Submit </button>
+      </div>
+
+
+
+
     </div>
-  
+
 
 
 </section>
