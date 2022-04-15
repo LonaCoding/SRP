@@ -45,10 +45,12 @@ tSNE_data <- RunTSNE(cluster_data, dims=1:15)
 DimPlot(tSNE_data, reduction='tsne')
 
 #Defining markers for clusters 
-cluster0 <- FindMarkers(tSNE_data, ident.1 = 0)
-cluster1 <- FindMarkers(tSNE_data, ident.1 = 1)
-cluster2 <- FindMarkers(tSNE_data, ident.1 = 2)
+cluster0.markers <- FindMarkers(tSNE_data, ident.1 = 0, ident.2=c(1:5), min.pct=0.25)
+cluster1 <- FindMarkers(tSNE_data, ident.1 = 1, ident.2 = c(2:5), min.pct = 0.25)
+cluster2 <- FindMarkers(tSNE_data, ident.1 = 2, ident.2 = )
 cluster3 <- FindMarkers(tSNE_data, ident.1 = 3)
 cluster4 <- FindMarkers(tSNE_data, ident.1 = 4)
 cluster5 <- FindMarkers(tSNE_data, ident.1 = 5)
+
+#Get markers and order 
 

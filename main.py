@@ -8,7 +8,7 @@ app = Flask(__name__)
 connection = sqlite3.connect('database/GeneQuery2.db')
 cursor = connection.cursor()
 
-cursor.execute('SELECT genes FROM cluster_2')
+cursor.execute('SELECT * FROM cluster2 WHERE genes="ETNPPL"')
 rows = cursor.fetchall()
 print(rows)
 
