@@ -31,10 +31,8 @@
   <link rel="stylesheet" href="../../../static/css/stylesheet.css">
 
 </head>
-
 <body class="d-flex flex-column min-vh 100">
   <section id='Title-intro'>
-  <main class="flex-fill">
     <!-- Navigation Bar -->
     <div class="container-fluid">
 
@@ -75,7 +73,7 @@
         </div>
       </nav>
 
-      <!-- Title and introduction -->
+      <!-- Titleand introduction -->
       <div class='container-fluid'>
           <h1>Gene Query (Pipeline {{pipeline_num}}) </h1>
           <p class='Intro'>
@@ -88,6 +86,15 @@
 
 <section id='project-overview'>
 <hr class='middle-break' style ='height:20px; margin-top:0;'>
+    <script>
+    function formValidate(){
+        var cluster = document.forms["geneQuery"]["cluster"].value;
+        var gene = document.forms["geneQuery"]["gene"].value;
+        if (cluster == '' | gene == ''){
+            alert("Please choose a cluster or enter a gene")
+            return False;}
+            }
+    </script>
 
   <div class='container-fluid'>
       <h2 class=aims-objectives-text style="text-align:center;"> Find which genes are expressed in the predicted clusters.</h2>
@@ -96,7 +103,7 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed augue id metus rhoncus gravida at at dolor. Nam id risus ac eros dictum dignissim sit amet vitae sapien. Vivamus eget condimentum nisi. Cras non tincidunt nunc. Ut
         rutrum tempor magna, eu lacinia tellus pellentesque a.
       </p>
-      <form action="/pipeline/{{pipeline_num}}/query/search" method="post">
+      <form name= "geneQuery" action="/pipeline/{{pipeline_num}}/query/search" method="post", onsubmit="formValidate()">
       <div class='mb-5'>
         <select name="cluster" id='select-clusters' class='form-select' style='width:50%;'>
           <option selected> Choose cluster... </option>
@@ -108,7 +115,7 @@
       </div>
 
       <div class='mb-5'>
-        <label for="gene-query"> Insert HGNC symbols for gene</label>
+        <label for="gene-query"> Insert HGNC symbol for gene</label>
         <input name="gene" id = 'gene-query' type="text" class = 'form-control' style='width:50%;'>
       </div>
 
@@ -120,9 +127,7 @@
     </div>
 
 
-
 </section>
-  </main>
 
   <!-- Footer is temporary, position is fixed because page content is not filled. Needs to be changed to a sticky footer regardless of content size -->
    <footer id='footer' class='footer fixed-bottom'>

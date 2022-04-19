@@ -1,6 +1,6 @@
 library(SeuratObject)
 library(Seurat)
-raw_counts <- read.table("../Analysis/Pipeline2/Seurat/R_seurat_Analysis/featurecounts.txt",header=T,stringsAsFactors = FALSE, sep='\t')
+raw_counts <- read.table("../Analysis/Pipeline2/Seurat/R_Seurat_Analysis/featurecounts.txt",header=T,stringsAsFactors = FALSE, sep='\t')
 counts <- raw_counts[,-(2:6)]
 rownames(counts) <- counts[,1]
 counts <- as.matrix(counts)

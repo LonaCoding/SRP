@@ -34,8 +34,8 @@ def gene_query(number):
 @app.route('/pipeline/<int:number>/query/search', methods=['POST'])
 def search_database(number):
     pipeline_num = number
-    gene = request.form['gene'].upper()
-    cluster = request.form['cluster']
+    gene = request.form.get('gene').upper()
+    cluster = request.form.get('cluster')
     if pipeline_num == 2:
         database2 = database.GeneQuery2()
         find_gene = database2.find_genes(cluster, gene)
