@@ -40,12 +40,16 @@ def search_database(number):
         database2 = database.GeneQuery2()
         find_gene = database2.find_genes(cluster, gene)
         if len(find_gene) == 0:
-            found = f'This gene is not present in {cluster}'
-        else:
-            found = database.FoundGene(find_gene)
-            print(found.name)
+            found = False
+            results = f'{gene} could not be found in {cluster}'
 
-    return render_template('genesearch.html', pipeline_num=pipeline_num, gene=gene, cluster=cluster, found = found)
+
+        else:
+            found = True
+            results = database.FoundGene(find_gene)
+
+    return render_template('genesearch.html', pipeline_num=pipeline_num, gene=gene, cluster=cluster, found=found,
+                           results=results)
 
 
 @app.route('/references')

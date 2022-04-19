@@ -15,7 +15,6 @@ class GeneQuery2:
         cursor = self.connection.cursor()
         find = cursor.execute(f'SELECT * from {cluster} WHERE genes = "{gene}"')
         result = cursor.fetchall()
-        print(result)
         return result
 
 

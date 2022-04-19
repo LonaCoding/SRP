@@ -54,8 +54,8 @@
                 Analysis Pipelines
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="../1">Pipeline 1</a></li>
-                <li><a class="dropdown-item" href="../2">Pipeline 2</a></li>
+                <li><a class="dropdown-item" href="/pipeline/1">Pipeline 1</a></li>
+                <li><a class="dropdown-item" href="/pipeline/2">Pipeline 2</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">
@@ -88,12 +88,27 @@
   <div class='container-fluid'>
       <h2 class=aims-objectives-text style="text-align:center;"> Searching for {{gene}} in {{cluster}}.</h2>
       <hr class='hr-aims'>
-      <table class = "table">
-          <th scope = "col"> Gene</th>
-          <th scope = "col"> p-value</th>
-          <th scope="col"> log-fold change</th>
-
-      </table>
+      {% if found == True  %}
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th scope = "col"> Gene</th>
+                    <th scope = "col"> p-value adjusted</th>
+                    <th scope="col"> average log-fold change</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="'row"> {{results.name}}</th>
+                    <td> {{results.p_value}} </td>
+                    <td> {{results.log2FC}} </td>
+                </tr>
+            </tbody>
+        </table>
+        {% else %}
+        <p> {{results}} </p>
+        {% endif %}
+            <button type="button" class="btn btn-warning" onclick="location.href='../'"> Search for another gene</button>
 
       </div>
 
