@@ -11,7 +11,7 @@ E_id2 <- toJSON(row.names(cluster2))
 E_id3 <- toJSON(row.names(cluster3))
 E_id4 <- toJSON(row.names(cluster4))
 E_id5 <- toJSON(row.names(cluster5))
-
+print(attributes(E_id0))
 #Send GET requests 
 #Cluster 0
 body0 <- list(api=1, ids=E_id0)
@@ -56,40 +56,30 @@ head(converted3,5)
 #Set rownames 
 nams0 <- make.names(converted0,unique=TRUE) 
 row.names(cluster0) <- nams0
-cluster0$genes <- converted0
-cluster0$genes = as.character(cluster0$genes)
 
 nams1 <- make.names(converted1, unique=TRUE)
 row.names(cluster1) <- nams1 
-cluster1$genes <- converted1
-cluster1$genes = as.character(cluster1$genes)
 
 nams2 <- make.names(converted2, unique=TRUE)
 row.names(cluster2) <- nams2 
-cluster2$genes <- converted2
-cluster2$genes = as.character(cluster2$genes)
 
 nams3 <- make.names(converted3, unique=TRUE)
 row.names(cluster3) <- nams3 
-cluster3$genes <- converted3
-cluster3$genes = as.character(cluster3$genes)
 
 nams4 <- make.names(converted4, unique=TRUE)
 row.names(cluster4) <- nams4 
-cluster4$genes <- converted4
-cluster4$genes = as.character(cluster4$genes)
+
 
 nams5 <- make.names(converted5, unique=TRUE)
 row.names(cluster5) <- nams5 
-cluster5$genes <- converted5
-cluster5$genes = as.character(cluster5$genes)
+
+print(head(cluster2,10))
 
 #Writing cluster tables to csv files 
-write.table(cluster0,file='cluster0_final.csv',sep=',',row.names = FALSE)
-write.table(cluster1,file='cluster1_final.csv', sep=',',row.names = FALSE)
-write.table(cluster2,file='cluster2_final.csv', sep=',',row.names = FALSE)
-write.table(cluster3,file='cluster3_final.csv', sep=',', row.names = FALSE)
-write.table(cluster4,file='cluster4_final.csv', sep=',', row.names= FALSE)
-write.table(cluster5,file='cluster5_final.csv', sep=',', row.names=FALSE)
+write.table(cluster1,file='cluster1.csv', sep=',',row.names = TRUE)
+write.table(cluster2,file='cluster2.csv', sep=',')
+write.table(cluster3,file='cluster3.csv', sep=',')
+write.table(cluster4,file='cluster4.csv', sep=',')
+write.table(cluster5,file='cluster5.csv', sep=',')
 
 
