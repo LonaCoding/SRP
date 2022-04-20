@@ -34,12 +34,17 @@ def gene_query(number):
 @app.route('/pipeline/<int:number>/query/search', methods=['POST'])
 def search_database(number):
     pipeline_num = number
-    gene = request.form['gene'].upper()
     cluster = request.form['cluster']
+    gene = request.form['gene'].upper()
+    # This part might be modified such that gene is a list of genes to search.
+    #use loop
+    #geneList=list(gene)
+    #for g in geneList:
+    
     if pipeline_num == 2:
         database2 = database.GeneQuery2()
         find_gene = database2.find_genes(cluster, gene)
-        if len(find_gene) == 0:
+        if len(find_gene) == 0: #if search is exhausted yet no match
             found = f'This gene is not present in {cluster}'
         else:
             found = database.FoundGene(find_gene)
