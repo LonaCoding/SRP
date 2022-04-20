@@ -7,9 +7,10 @@ counts <- as.matrix(counts)
 counts <- counts[,-1]
 counts <- CreateSeuratObject(counts = counts)
 
+
+
 #Normalise data 
 norm_counts <- NormalizeData(counts, normalization.method = 'RC', scale.factor = 1e6)
-
 
 #Highly variable features 
 variable_features <- FindVariableFeatures(norm_counts, selection.method = 'vst')
@@ -45,12 +46,9 @@ tSNE_data <- RunTSNE(cluster_data, dims=1:15)
 DimPlot(tSNE_data, reduction='tsne')
 
 #Defining markers for clusters 
-cluster0.markers <- FindMarkers(tSNE_data, ident.1 = 0, ident.2=c(1:5), min.pct=0.25)
-cluster1 <- FindMarkers(tSNE_data, ident.1 = 1, ident.2 = c(1,2:5), min.pct = 0.25)
-cluster2 <- FindMarkers(tSNE_data, ident.1 = 2, ident.2 = c(0,1,3,4,5), min.pct=0.25 )
-cluster3 <- FindMarkers(tSNE_data, ident.1 = 3, ident.2 = c(0,1,2,4,5), min.pct=0.25)
-cluster4 <- FindMarkers(tSNE_data, ident.1 = 4, ident.2 = c(0,1,2,3,5), min.pct(0.25))
-cluster5 <- FindMarkers(tSNE_data, ident.1 = 5, ident.2 = c(0,1,2,3,4),min.pct(0.25))
-
-#Get markers and order 
-
+cluster0 <- FindMarkers(tSNE_data, ident.1 = 0)
+cluster1 <- FindMarkers(tSNE_data, ident.1 = 1)
+cluster2 <- FindMarkers(tSNE_data, ident.1 = 2)
+cluster3 <- FindMarkers(tSNE_data, ident.1 = 3)
+cluster4 <- FindMarkers(tSNE_data, ident.1 = 4)
+cluster5 <- FindMarkers(tSNE_data, ident.1 = 5)
