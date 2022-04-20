@@ -27,8 +27,11 @@ def gene_query(number):
     if pipeline_num == 2:
         database2 = database.GeneQuery2()
         clusters = database2.get_clusters()
+        gene_count_info = database.GeneCounts()
+        genes_per_cluster = gene_count_info.genes_per_cluster
+        total_genes = gene_count_info.total_genes
 
-    return render_template('genequery.html', pipeline_num=pipeline_num, clusters=clusters)
+    return render_template('genequery.html', pipeline_num=pipeline_num, clusters=clusters, total_genes=total_genes)
 
 
 @app.route('/pipeline/<int:number>/query/search', methods=['POST'])
@@ -36,6 +39,7 @@ def search_database(number):
     pipeline_num = number
     gene = request.form.get('gene').upper()
     cluster = request.form.get('cluster')
+    print(cluster)
     if pipeline_num == 2:
         database2 = database.GeneQuery2()
         find_gene = database2.find_genes(cluster, gene)

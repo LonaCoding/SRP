@@ -17,9 +17,21 @@ class GeneQuery2:
         result = cursor.fetchall()
         return result
 
+    def gene_counts(self, cluster: str):
+        cursor = self.connection.cursor()
+        find = cursor.execute(f'SELECT COUNT(*) FROM {cluster}')
+        result = cursor.fetchall()
+        return result
+
 
 class FoundGene:
     def __init__(self, row: list):
         self.name = row[0][-1]
         self.p_value = row[0][4]
         self.log2FC = row[0][1]
+
+class GeneCounts(GeneQuery2):
+    def __init__(self):
+        super().__init__()
+        self.genes_per_cluster = [self.gene_counts(n)[0][0] for n in self.get_clusters()]
+        self.total_genes = sum(self.genes_per_cluster)

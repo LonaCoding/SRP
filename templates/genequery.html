@@ -77,8 +77,7 @@
       <div class='container-fluid'>
           <h1>Gene Query (Pipeline {{pipeline_num}}) </h1>
           <p class='Intro'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed augue id metus rhoncus gravida at at dolor. Nam id risus ac eros dictum dignissim sit amet vitae sapien. Vivamus eget condimentum nisi. Cras non tincidunt nunc. Ut
-            rutrum tempor magna, eu lacinia tellus pellentesque a.
+            The pipeline 2 analysis discovered a total of {{total_genes}} differentially expressed genes across a total of six clusters.
           </p>
         </div>
       </div>
@@ -86,27 +85,18 @@
 
 <section id='project-overview'>
 <hr class='middle-break' style ='height:20px; margin-top:0;'>
-    <script>
-    function formValidate(){
-        var cluster = document.forms["geneQuery"]["cluster"].value;
-        var gene = document.forms["geneQuery"]["gene"].value;
-        if (cluster == '' | gene == ''){
-            alert("Please choose a cluster or enter a gene")
-            return False;}
-            }
-    </script>
 
   <div class='container-fluid'>
       <h2 class=aims-objectives-text style="text-align:center;"> Find which genes are expressed in the predicted clusters.</h2>
       <hr class='hr-aims'>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed augue id metus rhoncus gravida at at dolor. Nam id risus ac eros dictum dignissim sit amet vitae sapien. Vivamus eget condimentum nisi. Cras non tincidunt nunc. Ut
-        rutrum tempor magna, eu lacinia tellus pellentesque a.
+        To find whether a gene is expressed in a particular cluster. Select a cluster from the dropdown box and insert the HGNC symbol for your query gene in the input textbox below. Expressed genes will then be displayed with their corresponding p-values and log2-fold change of expression.
       </p>
-      <form name= "geneQuery" action="/pipeline/{{pipeline_num}}/query/search" method="post", onsubmit="formValidate()">
+      <form name= "geneQuery" action="/pipeline/{{pipeline_num}}/query/search" method="post" onsubmit="return formValidate()" required="">
       <div class='mb-5'>
-        <select name="cluster" id='select-clusters' class='form-select' style='width:50%;'>
-          <option selected> Choose cluster... </option>
+        <label for="select-clusters" class="form-label"> Please select a cluster to search from</label>
+        <select name="cluster" id='select-clusters' class='form-select' required="required" style='width:50%;'>
+          <option selected disabled="disabled" value=""> Choose cluster... </option>
 
         {% for cluster in clusters %}
           <option> {{cluster}} </option>
@@ -116,7 +106,7 @@
 
       <div class='mb-5'>
         <label for="gene-query"> Insert HGNC symbol for gene</label>
-        <input name="gene" id = 'gene-query' type="text" class = 'form-control' style='width:50%;'>
+        <input name="gene" id = 'gene-query' type="text" class = 'form-control' style='width:50%;' required="required">
       </div>
 
       <div class ='mb-5'>
@@ -136,6 +126,15 @@
         </p>
       </footer>
 
+    <script>
+    function formValidate(){
+        var cluster = document.forms["geneQuery"]["cluster"].value;
+        var gene = document.forms["geneQuery"]["gene"].value;
+         if (gene == ''){
+            alert("Please enter a gene");
+            return false;}
+            }
+    </script>
 </body>
 
 </html>
