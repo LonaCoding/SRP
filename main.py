@@ -17,7 +17,9 @@ def index():
 
 @app.route('/pipeline/<int:number>/')
 def pipeline(number):
-    return render_template('analysis_pipelines.html')
+    if number == 1:
+        image = 'statix/image/graoh.png'
+        return render_template('analysis_pipelines.html', image)
 
 
 @app.route('/pipeline/<int:number>/query', methods=['GET', 'POST'])
