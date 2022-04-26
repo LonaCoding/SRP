@@ -6,6 +6,7 @@ import database
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -19,15 +20,14 @@ def pipeline(number):
 @app.route('/pipeline/<int:number>/query', methods=['GET', 'POST'])
 def gene_query(number):
     pipeline_num = number
-    # TODO: NEED TO RE-STRUCTURE ONCE DATABASE MADE FOR PIPELINE 1
-    if pipeline_num == 2:
-        database2 = database.GeneQuery(pipeline_num)
-        clusters = database2.get_clusters()
-        gene_count_info = database.GeneCounts(pipeline_num)
-        genes_per_cluster = gene_count_info.genes_per_cluster
-        total_genes = gene_count_info.total_genes
 
-    return render_template('genequery.html', pipeline_num=pipeline_num, clusters=clusters, total_genes=total_genes)
+    selected_database = database.GeneQuery(pipeline_num)
+    clusters = sorted(selected_database.get_clusters())
+    gene_count_info = database.GeneCounts(pipeline_num)
+    total_genes = gene_count_info.total_genes
+
+    return render_template('genequery.html', pipeline_num=pipeline_num, clusters=clusters, total_genes=total_genes,
+                           len=len)
 
 
 @app.route('/pipeline/<int:number>/query/search', methods=['POST'])
