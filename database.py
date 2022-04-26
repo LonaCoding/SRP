@@ -1,9 +1,9 @@
 import sqlite3 as db
 
 
-class GeneQuery2:
-    def __init__(self):
-        self.connection = db.connect('database/GeneQuery2.db')
+class GeneQuery:
+    def __init__(self, database_number: int):
+        self.connection = db.connect(f'database/GeneQuery{database_number}.db')
 
     def get_clusters(self) -> list:
         cursor = self.connection.cursor()
@@ -30,8 +30,9 @@ class FoundGene:
         self.p_value = row[0][4]
         self.log2FC = row[0][1]
 
-class GeneCounts(GeneQuery2):
-    def __init__(self):
-        super().__init__()
+
+class GeneCounts(GeneQuery):
+    def __init__(self,database_number):
+        super().__init__(database_number)
         self.genes_per_cluster = [self.gene_counts(n)[0][0] for n in self.get_clusters()]
         self.total_genes = sum(self.genes_per_cluster)

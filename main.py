@@ -6,10 +6,6 @@ import database
 
 app = Flask(__name__)
 
-connection = sqlite3.connect('database/GeneQuery2.db')
-cursor = connection.cursor()
-
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -25,9 +21,9 @@ def gene_query(number):
     pipeline_num = number
     # TODO: NEED TO RE-STRUCTURE ONCE DATABASE MADE FOR PIPELINE 1
     if pipeline_num == 2:
-        database2 = database.GeneQuery2()
+        database2 = database.GeneQuery(pipeline_num)
         clusters = database2.get_clusters()
-        gene_count_info = database.GeneCounts()
+        gene_count_info = database.GeneCounts(pipeline_num)
         genes_per_cluster = gene_count_info.genes_per_cluster
         total_genes = gene_count_info.total_genes
 
@@ -41,7 +37,7 @@ def search_database(number):
     cluster = request.form.get('cluster')
     print(cluster)
     if pipeline_num == 2:
-        database2 = database.GeneQuery2()
+        database2 = database.GeneQuery(pipeline_num)
         find_gene = database2.find_genes(cluster, gene)
         if len(find_gene) == 0:
             found = False
