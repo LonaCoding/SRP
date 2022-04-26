@@ -53,18 +53,19 @@ def search_database(number):
     pipeline_num = number
     gene = request.form.get('gene').upper()
     cluster = request.form.get('cluster')
-    print(cluster)
-    if pipeline_num == 2:
-        database2 = database.GeneQuery(pipeline_num)
-        find_gene = database2.find_genes(cluster, gene)
-        if len(find_gene) == 0:
-            found = False
-            results = f'{gene} could not be found in {cluster}'
 
+    selected_database = database.GeneQuery(pipeline_num)
+    find_gene = selected_database.find_genes(cluster, gene)
 
+    if len(find_gene) == 0:
+        found = False
+        results = f'{gene} could not be found in {cluster}'
+    else:
+        found = True
+        if pipeline_num == 1:
+            results = database.FoundGene1(find_gene)
         else:
-            found = True
-            results = database.FoundGene(find_gene)
+            results = database.FoundGene2(find_gene)
 
     return render_template('genesearch.html', pipeline_num=pipeline_num, gene=gene, cluster=cluster, found=found,
                            results=results)

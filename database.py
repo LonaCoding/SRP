@@ -26,7 +26,13 @@ class GeneQuery:
         return result
 
 
-class FoundGene:
+class FoundGene2:
+    def __init__(self, row: list):
+        self.name = row[0][0]
+        self.p_value = row[0][-1]
+        self.log2FC = row[0][2]
+
+class FoundGene1:
     def __init__(self, row: list):
         self.name = row[0][0]
         self.p_value = row[0][-1]
