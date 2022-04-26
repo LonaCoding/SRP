@@ -2,10 +2,13 @@ from flask import Flask
 from flask import render_template
 from flask import request
 import sqlite3
+import os
 import database
+import template_inserts
 
 app = Flask(__name__)
 
+# Connect to database upon loading
 connection = sqlite3.connect('database/GeneQuery2.db')
 cursor = connection.cursor()
 
@@ -17,7 +20,19 @@ def index():
 
 @app.route('/pipeline/<int:number>/')
 def pipeline(number):
-    return render_template('analysis_pipelines.html')
+    pipeline_num = number
+
+    # Process relevant text and image files for pipeline page
+    template_insert = template_inserts.TemplateInsert(number)
+    texts = template_insert.get_text()
+
+    figure_legends = texts[0]
+    figure_paragraphs = texts[1]
+
+    figures = template_insert.get_images()
+
+    return render_template('analysis_pipelines.html', pipeline_num=pipeline_num, figure_legends=figure_legends,
+                           figure_paragraphs=figure_paragraphs, figures=figures, zip=zip)
 
 
 @app.route('/pipeline/<int:number>/query', methods=['GET', 'POST'])
@@ -39,7 +54,6 @@ def search_database(number):
     pipeline_num = number
     gene = request.form.get('gene').upper()
     cluster = request.form.get('cluster')
-    print(cluster)
     if pipeline_num == 2:
         database2 = database.GeneQuery2()
         find_gene = database2.find_genes(cluster, gene)
