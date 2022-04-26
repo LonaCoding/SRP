@@ -1,3 +1,4 @@
+import sqlite3
 import sqlite3 as db
 
 
@@ -13,7 +14,8 @@ class GeneQuery:
 
     def find_genes(self, cluster: str, gene: str) -> list:
         cursor = self.connection.cursor()
-        find = cursor.execute(f'SELECT * from {cluster} WHERE genes = "{gene}"')
+
+        find = cursor.execute(f'SELECT * from {cluster} WHERE gene = "{gene}"')
         result = cursor.fetchall()
         return result
 
@@ -26,9 +28,10 @@ class GeneQuery:
 
 class FoundGene:
     def __init__(self, row: list):
-        self.name = row[0][-1]
-        self.p_value = row[0][4]
-        self.log2FC = row[0][1]
+        self.name = row[0][0]
+        self.p_value = row[0][-1]
+        self.log2FC = row[0][2]
+
 
 
 class GeneCounts(GeneQuery):
