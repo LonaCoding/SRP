@@ -1,0 +1,1 @@
+Figure 2.Uncertainty plot generated in R package Mclust depicts the uncertainty of data points for each cluster generated.

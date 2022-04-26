@@ -1,0 +1,1 @@
+We observed one less cluster than was reported in the original publication (Darmanis et al, 2015; Fig S2.B), however our method returned a lesser degree of uncertainty across all clusters. This suggests that our replication of the original method may have merged two clusters that were of questionable definition in the original publication.

@@ -90,7 +90,7 @@
   <main>
     <section id='Results'>
       <hr class='middle-break' style='height:20px; margin-top:0;'>
-      <h2 class='pipeline-title'> Pipeline subtitle</h2>
+      <h2 class='pipeline-title'> Pipeline {{pipeline_num}} Results</h2>
 
       <div class='container results'>
         <div class='results-text'>
@@ -99,26 +99,17 @@
             rutrum tempor magna, eu lacinia tellus pellentesque a.
           </p>
         </div>
-        <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-interval='false'>
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          </div>
-          <div class='carousel-inner'>
-            <div class="carousel-item active">
-              <img src="https://picsum.photos/300/250" alt="placeholder-image" class='placeholder-image d-block w-50'>
-              <div class='carousel-caption d-none d-md-block'>
-                Figure text
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="https://picsum.photos/300/250" alt="placeholder-image" class='placeholder-image d-block w-50'>
-              <div class="carousel-caption d-none d-md-block">
-                Figure text
-              </div>
-            </div>
-          </div>
 
+        {% for text,image,legend in zip(figure_paragraphs,figures,figure_legends) %}
+        <div class="results-figure">
+          <figure class="text-center">
+            <img src="/{{image}}" class="figure-img img-fluid">
+            <figcaption class="figure-caption">{{legend}}</figcaption>
+          </figure>
+          <p class="figure-paragraph text-centre">{{text}}</p>
+        </div>
+        {% endfor %}
+      </div>
     </section>
   </main>
 

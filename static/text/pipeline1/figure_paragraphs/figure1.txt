@@ -1,0 +1,1 @@
+The BIC curves generated using default settings in R package Mclust (Fraley and Raftery, 1999) are almost identical to that observed in the original publication (Darmanis et al, 2015; Fig S2.A). The same two highest ranking models and a very similar range along the y-axis implies an underlying similarity in the distribution of the dataset following dimensionality reduction.

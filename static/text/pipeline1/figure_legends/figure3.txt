@@ -1,0 +1,1 @@
+Figure 3. Cells are depicted by a single data point in 3D space, coloured by each of the nine respective unbiased clusters identified.
