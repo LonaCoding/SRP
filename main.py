@@ -24,11 +24,12 @@ def pipeline(number):
 
     figure_legends = texts[0]
     figure_paragraphs = texts[1]
+    methods_results = texts[2]
 
     figures = template_insert.get_images()
-
     return render_template('analysis_pipelines.html', pipeline_num=pipeline_num, figure_legends=figure_legends,
-                           figure_paragraphs=figure_paragraphs, figures=figures, zip=zip, type=type, str=str, len=len,
+                           figure_paragraphs=figure_paragraphs, figures=figures, methods_results=methods_results,
+                           zip=zip, type=type, str=str, len=len,
                            list=list)
 
 

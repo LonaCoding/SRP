@@ -78,11 +78,12 @@
       <!-- Title and introduction -->
 
       <div class='container-fluid'>
-        <h1>Pipeline introduction / methods</h1>
+        <h1>Pipeline {{pipeline_num}} methods</h1>
+        {% for text in methods_results %}
         <p class='Intro'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed augue id metus rhoncus gravida at at dolor. Nam id risus ac eros dictum dignissim sit amet vitae sapien. Vivamus eget condimentum nisi. Cras non tincidunt nunc. Ut
-          rutrum tempor magna, eu lacinia tellus pellentesque a.
+          {{text}}
         </p>
+        {% endfor %}
       </div>
     </div>
 
