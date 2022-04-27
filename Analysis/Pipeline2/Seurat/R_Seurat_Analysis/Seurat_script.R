@@ -6,9 +6,9 @@ library(sctransform)
 library(ggplot2)
 
 ######DATA IMPORT / FORMATTING 
-raw.data<-read.table('../data/featurecounts.txt',header=T,sep='\t') #table containing genes as rows, cells as columns, and a few other variables as rows (chromosome, etc. )
+raw.data<-read.table('featurecounts.txt',header=T,sep='\t') #table containing genes as rows, cells as columns, and a few other variables as rows (chromosome, etc. )
 #replace ensembl IDs with gene IDs 
-id.data <- read.table('../data/gene_id_conversion2.txt',header=T,sep='\t',na.strings = c("")) #import ensembl id to gene symbol data 
+id.data <- read.table('gene_id_conversion2.txt',header=T,sep='\t',na.strings = c("")) #import ensembl id to gene symbol data 
 raw.data<- raw.data[,!names(raw.data) %in% c('Length','Chr','Start','End','Strand','Geneid')] #drop columns that do not correspond to cells 
 colnames(raw.data)<- gsub('Aligned.sortedByCoord.out.bam','',colnames(raw.data)) #strip annoying suffix off the end of cell names 
 rows<- make.names(id.data$Gene_id,unique=TRUE) #make gene ids unique so they can be used as row names 
@@ -20,7 +20,7 @@ sro <- CreateSeuratObject(counts=raw.data,project='darmanis',min.cells=23,min.fe
 sro
 
 #ADD CELL TYPES FROM META DATA 
-celltypes<- read.table('../data/celltype_metadata.csv',header=T,sep=',',row.names=1)
+celltypes<- read.table('celltype_metadata.csv',header=T,sep=',',row.names=1)
 sro<- AddMetaData(sro,celltypes,col.name='biased_type') # add biased cell types to the metadata 
 sro@meta.data
 sro
