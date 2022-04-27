@@ -4,7 +4,8 @@ import sqlite3 as db
 
 class GeneQuery:
     def __init__(self, database_number: int):
-        self.connection = db.connect(f'database/GeneQuery{database_number}.db')
+        self.database_number = database_number
+        self.connection = db.connect(f'/local/www/htdocs/webapp/database/GeneQuery{self.database_number}.db')
 
     def get_clusters(self) -> list:
         cursor = self.connection.cursor()

@@ -8,10 +8,6 @@ import template_inserts
 
 app = Flask(__name__)
 
-# Connect to database upon loading
-connection = sqlite3.connect('database/GeneQuery2.db')
-cursor = connection.cursor()
-
 
 @app.route('/')
 def index():
@@ -31,9 +27,9 @@ def pipeline(number):
 
     figures = template_insert.get_images()
 
-
     return render_template('analysis_pipelines.html', pipeline_num=pipeline_num, figure_legends=figure_legends,
-                           figure_paragraphs=figure_paragraphs, figures=figures, zip=zip, type=type, print=print, len=len)
+                           figure_paragraphs=figure_paragraphs, figures=figures, zip=zip, type=type, str=str, len=len,
+                           list=list)
 
 
 @app.route('/pipeline/<int:number>/query', methods=['GET', 'POST'])
@@ -45,7 +41,8 @@ def gene_query(number):
     gene_count_info = database.GeneCounts(pipeline_num)
     total_genes = gene_count_info.total_genes
 
-    return render_template('genequery.html', pipeline_num=pipeline_num, clusters=clusters, total_genes=total_genes, len=len)
+    return render_template('genequery.html', pipeline_num=pipeline_num, clusters=clusters, total_genes=total_genes,
+                           len=len)
 
 
 @app.route('/pipeline/<int:number>/query/search', methods=['POST'])
@@ -68,7 +65,7 @@ def search_database(number):
             results = database.FoundGene2(find_gene)
 
     return render_template('genesearch.html', pipeline_num=pipeline_num, gene=gene, cluster=cluster, found=found,
-                           results=results, str = str())
+                           results=results, str=str())
 
 
 @app.route('/references')
