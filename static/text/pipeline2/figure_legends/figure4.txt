@@ -1,0 +1,1 @@
+Figure 4a. 3D UMAP representation of our final dataset, with each cell being coloured by its cluster assignment according to our Seurat workflow.Figure 4b. 3D UMAP representation of our final dataset, with each cell being coloured by its biased cell type assignment determined in Darmanis et al. (2015)

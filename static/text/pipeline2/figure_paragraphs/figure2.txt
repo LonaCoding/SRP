@@ -1,0 +1,3 @@
+Highly variable genes are often used for dimensionality reduction, as a small number of genes with high variance can explain a large fraction of the total variance between points in the dataset. In this way, features with high variance can be used to build principal component reductions of our features, which can then be used in the Seurat clustering process and further dimensionality reduction for visualisation, such as diffusion maps.
+
+Figure 2 shows the variance of genes in our dataset. We selected 3000 variable features in our final dataset for further downstream analysis.

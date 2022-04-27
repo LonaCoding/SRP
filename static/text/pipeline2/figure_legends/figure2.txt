@@ -1,0 +1,1 @@
+Figure 2. Scatter plot showing the variance against the mean expression of each feature (gene) in our dataset. Red features are features that explain a large amount of variance in the dataset

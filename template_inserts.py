@@ -11,9 +11,9 @@ class TemplateInsert:
         figure_paragraphs_dir = self.text_directory + '/figure_paragraphs'
 
         # Obtain list of file paths for text files
-        figure_legends_paths = [os.path.join(figure_legends_dir, file) for file in os.listdir(figure_legends_dir)]
-        figure_paragraphs_paths = [os.path.join(figure_paragraphs_dir, file) for file in
-                                   os.listdir(figure_paragraphs_dir)]
+        figure_legends_paths = sorted([os.path.join(figure_legends_dir, file) for file in os.listdir(figure_legends_dir)])
+        figure_paragraphs_paths = sorted([os.path.join(figure_paragraphs_dir, file) for file in
+                                   os.listdir(figure_paragraphs_dir)])
 
         figure_legends = []
         figure_paragraphs = []
@@ -29,6 +29,15 @@ class TemplateInsert:
         return figure_legends, figure_paragraphs
 
     def get_images(self) -> list:
-        figures = [os.path.join(self.images_directory, file) for file in os.listdir(self.images_directory)]
-
-        return figures
+        sorted_figure_paths = sorted(os.listdir(self.images_directory))
+        final_paths = []
+        for n in range(len(sorted_figure_paths)):
+            figure = os.path.join(self.images_directory, sorted_figure_paths[n])
+            if figure[-5] == 'a':
+                second_figure = os.path.join(self.images_directory, sorted_figure_paths[n + 1])
+                final_paths.append([figure,second_figure])
+            elif figure[-5] == 'b':
+                continue
+            else:
+                final_paths.append(os.path.join(self.images_directory, sorted_figure_paths[n]))
+        return final_paths

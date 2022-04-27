@@ -100,14 +100,17 @@
           </p>
         </div>
 
-        {% for text,image,legend in zip(figure_paragraphs,figures,figure_legends) %}
+        {% for n in range(0,len(figures)) %}
         <div class="results-figure">
           <figure class="text-center">
-            <img src="/{{image}}" class="figure-img img-fluid">
-            <figcaption class="figure-caption">{{legend}}</figcaption>
+            <img src="/{{figures[n]}}" class="figure-img img-fluid">
+            <figcaption class="figure-caption">{{figure_legends[n]}}</figcaption>
           </figure>
-          <p class="figure-paragraph text-centre">{{text}}</p>
+          <p class="figure-paragraph text-centre">{{figure_paragraphs[n]}}</p>
         </div>
+        {% if type(figures[n]) == list %}
+        {{print(True)}}
+        {% endif %}
         {% endfor %}
       </div>
     </section>

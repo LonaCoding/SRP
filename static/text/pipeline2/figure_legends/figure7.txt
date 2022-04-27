@@ -1,0 +1,1 @@
+Figure 7. Feature expression plots made in Seurat showing the expression levels of top markers for endothelial cells (IFITM1) and replicating foetal cells (TOP2A), as reported in Darmanis et al. (2015).

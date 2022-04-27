@@ -1,0 +1,1 @@
+The violin plots show in figure 6 show the expression levels of the top markers from our 6 clusters that were also identified as top markers in the unbiased group associated with their respective cell type in Darmanis et al. (2015).
