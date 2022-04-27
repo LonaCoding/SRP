@@ -1,0 +1,3 @@
+Pipeline 2 involved the development of a new pipeline for clustering analysis on the FASTQ data provided by Darmanis et al., (2015). Here, we trimmed the reads using Trimmomatic (v 0.39). Genome indexing was done using STAR (v2.7.9a) as well as the alignment of the reads to the genome. The output was then used for featureCounts (Subread package v 2.0.3) to produce a count matrix, with the values converted into count per million (CPM).
+
+The matrix was then used for dimensionality reduction and clustering analysis using Seurat (v 4.1.0) to produce the results and figures shown below.
