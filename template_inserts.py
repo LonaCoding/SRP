@@ -26,7 +26,7 @@ class TemplateInsert:
         for text in zip(sorted(figure_legends_paths), sorted(figure_paragraphs_paths)):
             figure_legend = text[0]
             figure_paragraph = text[1]
-            with open(figure_legend, 'r', encoding='utf=8') as legend:
+            with open(figure_legend, 'r', encoding='utf-8') as legend:
                 text = legend.read()
                 figure_legends.append(text)
             with open(figure_paragraph, 'r', encoding='utf-8') as paragraph:
