@@ -104,7 +104,7 @@
         {% if type(figures[n]) == str %}
         <div class="results-figure">
           <figure class="text-center">
-            <img src="/{{figures[n]}}" class="figure-img img-fluid">
+            <img src="{{figures[n][24:]}}" class="figure-img img-fluid">
             <figcaption class="figure-caption">{{figure_legends[n]}}</figcaption>
           </figure>
           <p class="figure-paragraph text-centre">{{figure_paragraphs[n]}}</p>
@@ -113,10 +113,10 @@
           <figure class="text-center">
             <div class="row">
               <div class="col-md-6">
-                <img src="/{{figures[n][0]}}" class="figure-img" style="width: 70%">
+                <img src="{{figures[n][0][24:]}}" class="figure-img" style="width: 70%">
               </div>
               <div class="col-md-6">
-                <img src="/{{figures[n][1]}}" class="figure-img" style="width: 70%">
+                <img src="{{figures[n][1][24:]}}" class="figure-img" style="width: 70%">
               </div>
             </div>
             <figcaption class="figure-caption text-centre">{{figure_paragraphs[n]}}</figcaption>
