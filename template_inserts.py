@@ -4,7 +4,7 @@ import os
 class TemplateInsert:
     def __init__(self, pipeline_number: int):
         self.text_directory = f'/local/www/htdocs/webapp/static/text/pipeline{pipeline_number}'
-        self.images_directory = f'static/images/pipeline{pipeline_number}'
+        self.images_directory = f'/local/www/htdocs/webapp/static/images/pipeline{pipeline_number}'
 
     def get_text(self) -> tuple:
         figure_legends_dir = self.text_directory + '/figure_legends'
@@ -39,7 +39,7 @@ class TemplateInsert:
                 text = paragraph.read()
                 figure_paragraphs.append(text)
 
-        for text in methods_results_text:
+        for text in methods_results:
             with open(text, 'r', encoding='utf-8') as file:
                 text = file.read()
                 methods_results_text.append(text)
