@@ -1,0 +1,1 @@
+Figure 1.Bayesian information criterion (BIC) plot generated in R package Mclust. A spherical, varying volume model (VII) was used to a fit 9 components.

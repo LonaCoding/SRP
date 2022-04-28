@@ -75,19 +75,14 @@
       </nav>
 
       <!-- Title and introduction -->
-      <div class='row'>
+      <div class='row g-3'>
         <div class='col-lg-6 col-md-1'>
           <h1>Something about single cell</h1>
-          <p class='Intro'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed augue id metus rhoncus gravida at at dolor. Nam id risus ac eros dictum dignissim sit amet vitae sapien. Vivamus eget condimentum nisi. Cras non tincidunt nunc. Ut
-            rutrum tempor magna, eu lacinia tellus pellentesque a.
-          </p>
-          <button type="button" class="btn btn-outline-light btn-lg pipe-button"><i class="fa-solid fa-circle-arrow-down"></i> Project Overview</button>
+          <p class='Intro'> {{introduction}} </p>
         </div>
         <div class='col-lg-6 col-md-1'>
-          <img src="https://picsum.photos/300/300" alt="placeholder-image" class='placeholder-image'>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/6UVOdCc1Q7I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-      </div>
       </div>
   </section>
 
@@ -97,7 +92,8 @@
   <div class='container'>
     <div>
       <h2 class='project-overview-text'> Project Overview</h2>
-      <p>    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>{{project_overview1}}</p>
+      <p>{{project_overview2}}</p>
     </div>
   </div>
 
@@ -106,12 +102,12 @@
 </section>
   </main>
 
-  <!-- Footer is temporary, position is fixed because page content is not filled. Needs to be changed to a sticky footer regardless of content size -->
-   <footer id='footer' class='footer fixed-bottom'>
-        <p class='footer-text'>
-          footer
-        </p>
-      </footer>
+  <footer id='footer' class='footer fixed-bottom'>
+      <p class='footer-text'>
+        Created by: Angelo Talay, Sally Murray, Ed Wiltshire, Josephine Candra.
+      </p>
+      <p>{{date}}</p>
+  </footer>
 
 </body>
 
