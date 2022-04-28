@@ -11,7 +11,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    with open('static/text/main_page/introduction.txt', 'r') as file:
+        introduction = file.read()
+
+    return render_template('index.html', introduction = introduction)
 
 
 @app.route('/pipeline/<int:number>/')
