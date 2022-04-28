@@ -13,7 +13,7 @@
 
 # Fastqc (FastQC v0.11.2) report on each pair of files from first prinseq step to be returned to prin_1_output. 
 
-for i in /scratch/spectre/s/sesm2/SRP/prin_t1/*_prin1_1.fastq
+for i in /scratch/spectre/s/sesm2/SRP/prin_1_output/*_prin1_1.fastq
 do 
 fn=$(echo "$(basename "$i")" | awk -F'[_.]' '{print $1}')
 #echo $fn"_prin1_1.fastq" $fn"_prin1_2.fastq"

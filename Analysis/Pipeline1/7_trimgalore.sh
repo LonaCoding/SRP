@@ -10,8 +10,8 @@
 
 # Execute the job code
 
-mkdir trimgalore_out
-cd trimgalore_out # To return trimmed files to their own folder depsite the absence of an output function in this version of TrimGalore (version 0.4.1).
+mkdir /scratch/spectre/s/sesm2/SRP/trimgalore_out
+cd /scratch/spectre/s/sesm2/SRP/trimgalore_out # To return trimmed files to their own folder depsite the absence of an output function in this version of TrimGalore (version 0.4.1).
 
 #Trim parameteres taken from the methods section of the original publication and report file excluded in the output as not required.
 
