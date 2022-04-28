@@ -102,7 +102,7 @@
             <img src="{{figures[n][24:]}}" class="figure-img img-fluid">
             <figcaption class="figure-caption">{{figure_legends[n]}}</figcaption>
           </figure>
-          <p class="figure-paragraph text-centre">{{figure_paragraphs[n]}}</p>
+          <p class="figure-paragraph text-centre" style="padding-top: 10px; padding-bottom:10px;">{{figure_paragraphs[n]}}</p>
         </div>
         {% elif type(figures[n]) == list %}
           <figure class="text-center">
@@ -115,7 +115,7 @@
               </div>
             </div>
             <figcaption class="figure-caption text-centre">{{figure_legends[n]}}</figcaption>
-            <p class="figure-paragraph text-centre">{{figure_paragraphs[n]}}</p>
+            <p class="figure-paragraph text-centre" style="padding-top: 10px; padding-bottom:10px;">{{figure_paragraphs[n]}}</p>
           </figure>
         {% endif %}
         {% endfor %}
