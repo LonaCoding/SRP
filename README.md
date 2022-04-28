@@ -6,5 +6,5 @@ Steered Research Project
 **Analysis** and **Seurat-APP** foldes contain the scripts for processing and analysing data as per Darmanis paper.
 **database** folder contains database files for use within website's *genesearch* webpage.
 
-# Quick How-to-use Guide:
-
+# Supplementary materials:
+https://github.com/LonaCoding/SRP/Analysis/Supplementary_info.pdf
