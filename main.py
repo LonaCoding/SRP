@@ -74,7 +74,8 @@ def search_database(number):
 
 @app.route('/references')
 def references():
-    return render_template('References.html')
+    refList=[] #list of references
+    return render_template('References.html',refList=refList)
 
 
 if __name__ == '__main__':

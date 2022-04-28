@@ -105,11 +105,13 @@
     </p>
     <h2 class=aims-objectives-text> List of References:</h2>
     <hr class='hr-aims'>
-    <p>
+    
+    <p>      
       List of References:
     </p>
-    <li>Ref 1</li>
-    <li>Ref 2</li>
+    {% for ref in refList %}
+    <li>{{ref}}</li>
+    {% endfor %}
   </div>
 
 </section>
