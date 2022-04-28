@@ -1,11 +1,15 @@
 import os
 
-
+'''A class that primarily iterates through directories, stores paths and processes text files required for the 
+webpages '''
 class TemplateInsert:
     def __init__(self, pipeline_number: int):
-        self.text_directory = f'/local/www/htdocs/webapp/static/text/pipeline{pipeline_number}'
+        self.text_directory = f'/local/www/htdocs/webapp/static/text/pipeline{pipeline_number}' # Directory for texts
+        # and images
         self.images_directory = f'/local/www/htdocs/webapp/static/images/pipeline{pipeline_number}'
 
+    # A method that gets all relevant texts files for a specific webpage, stores them as strings to be parsed into
+    # Flask and Jinja2
     def get_text(self) -> tuple:
         figure_legends_dir = self.text_directory + '/figure_legends'
         figure_paragraphs_dir = self.text_directory + '/figure_paragraphs'
@@ -46,6 +50,7 @@ class TemplateInsert:
 
         return figure_legends, figure_paragraphs, methods_results_text
 
+    # A method that obtains all the relevant paths for images to be displayed on the html webpage templates
     def get_images(self) -> list:
         sorted_figure_paths = sorted(os.listdir(self.images_directory))
         final_paths = []
