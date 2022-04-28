@@ -10,7 +10,7 @@ Steered Research Project
 5. The templates folder is a folder that contains all the html templates for a particular webpage. 
 
 # Supplementary materials:
-https://github.com/LonaCoding/SRP/Analysis/Supplementary_info.pdf
+https://github.com/LonaCoding/SRP/blob/35b2c59604220a4f75b543015eaea2ecc8a9ac44/Analysis/Supplementary_info.pdf
 
 **Analysis** folder contains the scripts for processing and analysing data for both the original pipeline and the alternative pipeline.
 1. The subfolders: pipeline1 and pipeline2 contain all the scripts required for pre-processing of the Darmanis data as well as clustering for both the original and alternative pipeline.
