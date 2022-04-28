@@ -11,9 +11,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    with open('/local/www/htdocs/webapp/static/text/main_page/introduction.txt', 'r') as file:
+    with open('/local/www/htdocs/webapp/static/text/main_page/introduction.txt', 'r', encoding='utf-8') as file:
         introduction = file.read()
-    with open('local/www/htdocs/webapp/static/text/main_page/project_overview.txt', 'r') as file:
+    with open('local/www/htdocs/webapp/static/text/main_page/project_overview.txt', 'r', encoding='utf-8') as file:
         project_overview = file.read()
 
     return render_template('index.html', introduction=introduction, project_overview=project_overview)
