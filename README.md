@@ -8,3 +8,7 @@ Steered Research Project
 
 # Quick How-to-use Guide:
 
+
+# Supplementary materials:
+https://github.com/LonaCoding/SRP/blob/ef0aad066809c8b0401ee6b820a6394bc643307f/Analysis/Supplementary_info.pdf
+
