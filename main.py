@@ -14,7 +14,7 @@ def index():
     with open('/local/www/htdocs/webapp/static/text/main_page/introduction.txt', 'r', encoding='utf-8') as file:
         introduction = file.read()
 
-    return render_template('index.html', introduction=introduction, project_overview=project_overview)
+    return render_template('index.html', introduction=introduction)
 
 
 @app.route('/pipeline/<int:number>/')
