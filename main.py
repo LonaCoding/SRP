@@ -3,11 +3,14 @@ from flask import render_template
 from flask import request
 import sqlite3
 import os
+import datetime as dt
 import database
 import template_inserts
 
+
 app = Flask(__name__)
 
+date = dt.date.today().year #Date for the footer
 
 @app.route('/')
 def index():
@@ -17,7 +20,7 @@ def index():
         project_overview1 = file.read()
     with open('/local/www/htdocs/webapp/static/text/main_page/project_overview2.txt', 'r', encoding='utf-8') as file:
         project_overview2 = file.read()
-    return render_template('index.html', introduction=introduction, project_overview1=project_overview1, project_overview2=project_overview2)
+    return render_template('index.html', introduction=introduction, project_overview1=project_overview1, project_overview2=project_overview2, date=date)
 
 
 @app.route('/pipeline/<int:number>/')
@@ -36,7 +39,7 @@ def pipeline(number):
     return render_template('analysis_pipelines.html', pipeline_num=pipeline_num, figure_legends=figure_legends,
                            figure_paragraphs=figure_paragraphs, figures=figures, methods_results=methods_results,
                            zip=zip, type=type, str=str, len=len,
-                           list=list)
+                           list=list, date=date)
 
 
 @app.route('/pipeline/<int:number>/query', methods=['GET', 'POST'])
@@ -49,7 +52,7 @@ def gene_query(number):
     total_genes = gene_count_info.total_genes
 
     return render_template('genequery.html', pipeline_num=pipeline_num, clusters=clusters, total_genes=total_genes,
-                           len=len)
+                           len=len, date=date)
 
 
 @app.route('/pipeline/<int:number>/query/search', methods=['POST'])
@@ -72,12 +75,12 @@ def search_database(number):
             results = database.FoundGene2(find_gene)
 
     return render_template('genesearch.html', pipeline_num=pipeline_num, gene=gene, cluster=cluster, found=found,
-                           results=results, str=str())
+                           results=results, str=str(), date=date)
 
 
 @app.route('/references')
 def references():
-    return render_template('References.html')
+    return render_template('References.html', date=date)
 
 
 if __name__ == '__main__':
