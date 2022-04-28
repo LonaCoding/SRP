@@ -78,11 +78,12 @@
       <!-- Title and introduction -->
 
       <div class='container-fluid'>
-        <h1>Pipeline introduction / methods</h1>
+        <h1>Pipeline {{pipeline_num}} methods</h1>
+        {% for text in methods_results %}
         <p class='Intro'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed augue id metus rhoncus gravida at at dolor. Nam id risus ac eros dictum dignissim sit amet vitae sapien. Vivamus eget condimentum nisi. Cras non tincidunt nunc. Ut
-          rutrum tempor magna, eu lacinia tellus pellentesque a.
+          {{text}}
         </p>
+        {% endfor %}
       </div>
     </div>
 
@@ -93,21 +94,30 @@
       <h2 class='pipeline-title'> Pipeline {{pipeline_num}} Results</h2>
 
       <div class='container results'>
-        <div class='results-text'>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed augue id metus rhoncus gravida at at dolor. Nam id risus ac eros dictum dignissim sit amet vitae sapien. Vivamus eget condimentum nisi. Cras non tincidunt nunc. Ut
-            rutrum tempor magna, eu lacinia tellus pellentesque a.
-          </p>
-        </div>
 
-        {% for text,image,legend in zip(figure_paragraphs,figures,figure_legends) %}
+        {% for n in range(0,len(figures)) %}
+        {% if type(figures[n]) == str %}
         <div class="results-figure">
           <figure class="text-center">
-            <img src="/{{image}}" class="figure-img img-fluid">
-            <figcaption class="figure-caption">{{legend}}</figcaption>
+            <img src="{{figures[n][24:]}}" class="figure-img img-fluid">
+            <figcaption class="figure-caption">{{figure_legends[n]}}</figcaption>
           </figure>
-          <p class="figure-paragraph text-centre">{{text}}</p>
+          <p class="figure-paragraph text-centre">{{figure_paragraphs[n]}}</p>
         </div>
+        {% elif type(figures[n]) == list %}
+          <figure class="text-center">
+            <div class="row">
+              <div class="col-md-6">
+                <img src="{{figures[n][0][24:]}}" class="figure-img" style="width: 75%">
+              </div>
+              <div class="col-md-6">
+                <img src="{{figures[n][1][24:]}}" class="figure-img" style="width: 75%">
+              </div>
+            </div>
+            <figcaption class="figure-caption text-centre">{{figure_legends[n]}}</figcaption>
+            <p class="figure-paragraph text-centre">{{figure_paragraphs[n]}}</p>
+          </figure>
+        {% endif %}
         {% endfor %}
       </div>
     </section>

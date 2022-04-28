@@ -1,0 +1,1 @@
+Figure 1. Violin plots produced using the original, full sample size (n=466) showing (left to right): the number of features observed per cell, the number of reads per cell, and the percentage of mitochondrial coverage per cell.

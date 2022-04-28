@@ -1,0 +1,1 @@
+Figure 3a. 2D UMAP representation of our final data (n= 396) where cells are coloured according to the communities determined by our Seurat clustering. Figure 3b. 2D UMAP representation of our final data (n= 396) where cells are coloured according to their biased cell type assignments determined by Darmanis et al. (2015)
