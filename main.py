@@ -13,11 +13,11 @@ app = Flask(__name__)
 def index():
     with open('/local/www/htdocs/webapp/static/text/main_page/introduction.txt', 'r', encoding='utf-8') as file:
         introduction = file.read()
-
-    with open('/local/www/htdocs/webapp/static/text/main_page/introduction.txt', 'r', encoding='utf-8') as file:
-        project_overview = file.read()
-
-    return render_template('index.html', introduction=introduction, project_overview=project_overview)
+    with open('/local/www/htdocs/webapp/static/text/main_page/project_overview1.txt', 'r', encoding='utf-8') as file:
+        project_overview1 = file.read()
+    with open('/local/www/htdocs/webapp/static/text/main_page/project_overview2.txt', 'r', encoding='utf-8') as file:
+        project_overview2 = file.read()
+    return render_template('index.html', introduction=introduction, project_overview1=project_overview1, project_overview2=project_overview2)
 
 
 @app.route('/pipeline/<int:number>/')
