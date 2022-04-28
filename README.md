@@ -9,8 +9,6 @@ Steered Research Project
 4. The static folder is a folder that contains all the css style sheets, texts and figures required for a particular webpage 
 5. The templates folder is a folder that contains all the html templates for a particular webpage. 
 
-# Supplementary materials:
-https://github.com/LonaCoding/SRP/blob/35b2c59604220a4f75b543015eaea2ecc8a9ac44/Analysis/Supplementary_info.pdf
 
 **Analysis** folder contains the scripts for processing and analysing data for both the original pipeline and the alternative pipeline.
 1. The subfolders: pipeline1 and pipeline2 contain all the scripts required for pre-processing of the Darmanis data as well as clustering for both the original and alternative pipeline.
@@ -18,3 +16,6 @@ https://github.com/LonaCoding/SRP/blob/35b2c59604220a4f75b543015eaea2ecc8a9ac44/
 **database** folder contains database files for use within website's *genesearch* webpage
 1. The database folder contains database files GeneQuery1 and GeneQuery2 that contains all the clusters and their associated genes obtained from the original and alternative pipelines. 
 
+
+# Supplementary materials:
+https://github.com/LonaCoding/SRP/blob/35b2c59604220a4f75b543015eaea2ecc8a9ac44/Analysis/Supplementary_info.pdf
